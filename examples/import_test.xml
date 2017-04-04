@@ -1,0 +1,6 @@
+﻿<EMSnippet ClassName="UEM.EMSnippet.0000" CreatedByVerion="8.6.445.0" OriginConfigFriendlyName="" OriginConfigID="32561A6C-166C-48E7-9BF3-74C601307FB3">
+  <Branches ClassName="UEM.BranchCollection.0000">
+    <Branch ClassName="UEM.Branch.0000" OriginalPath="Configuration.User.Events.PostLogon.Branches" LinkID="FA82A9A4-CA36-47C1-903B-639FF1904946" OriginID="32561A6C-166C-48E7-9BF3-74C601307FB3" Name="ImportedNode" Enabled="True" EventType="UserPostLogOn" />
+  </Branches>
+  <RunAsUserLibrary ClassName="UEM.RunAsUserLibrary.0000" RunAsUserLibraryID="4F17D66C-50B5-4B77-83E3-0B0A025DE219" />
+</EMSnippet>
