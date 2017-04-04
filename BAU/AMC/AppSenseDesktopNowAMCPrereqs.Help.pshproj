@@ -1,0 +1,327 @@
+<?xml version="1.0"?>
+<ModuleObject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" fVersion="1.1" type="Script" mclass="External" useSupports="false">
+  <Name>AppSenseDesktopNowAMCPrereqs</Name>
+  <Version>2015.10.30.0</Version>
+  <Description />
+  <ModulePath>.\AppSenseDesktopNowAMCPrereqs.psd1</ModulePath>
+  <HasManifest>false</HasManifest>
+  <OverridePostCount>false</OverridePostCount>
+  <FetchPostCount xsi:nil="true" />
+  <Cmdlets>
+    <CmdletObject verb="Get" noun="AppSenseManagementServerPrerequisite">
+      <Name>Get-AppSenseManagementServerPrerequisite</Name>
+      <GeneralHelp>
+        <Synopsis>Retrieves the pre-requisites that are currently known about by the Management Server.</Synopsis>
+        <Description>The Get-AppSenseManagementServerPrerequisite cmdlet retrieves the pre-requisites that are currently known about by the Management Server.</Description>
+        <Notes />
+        <InputType />
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;ManagementConsole.PackagesWebService.PrerequisitesDataSet</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$false if an error occurs;A PrerequisitesDataSet as per the API documentation.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="All" Params="TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ByKey" Params="ResourceKey TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ByPackageVersion" Params="PackageVersionKey TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Get-AppSenseManagementServerPrerequisite [-TrackTime]</string>
+        <string>Get-AppSenseManagementServerPrerequisite -ResourceKey &lt;String&gt; [-TrackTime]</string>
+        <string>Get-AppSenseManagementServerPrerequisite -PackageVersionKey &lt;String&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ResourceKey</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The unique ID of a particular pre-requisite to return.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>PackageVersionKey</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The unique ID of a package version.  When supplied the pre-requisites for that package version are returned.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Get-AppSenseManagementServerPrerequisite</Cmd>
+          <Description>This example retrieves all information about the pre-requisites stored in the Management Server database.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Get-AppSenseManagementServerPrerequisite -PackageVersionKey d2cb2c36-0a98-4a6f-84a9-51bcc2c3e7b6</Cmd>
+          <Description>This example retrieves the prerequisites for a particular version of a package.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Import-AppSenseManagementServerPrerequisite</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Export-AppSenseManagementServerPrerequisite</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Import" noun="AppSenseManagementServerPrerequisite">
+      <Name>Import-AppSenseManagementServerPrerequisite</Name>
+      <GeneralHelp>
+        <Synopsis>Uploads the given pre-requisites to the Management Server and optionally associates them with the given package version.</Synopsis>
+        <Description>The Import-AppSenseManagementServerPrerequisite cmdlet uploads the given pre-requisites to the Management Server and optionally associates them with the given package version.</Description>
+        <Notes />
+        <InputType>None.</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$true if the pre-requisites have been uploaded, and if necessary, associated correctly. $false if an error occured.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="Path PackageVersionKey Prerequisites ChunkSizeBytes ShowProgress TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Import-AppSenseManagementServerPrerequisite [-Path] &lt;String&gt; [[-PackageVersionKey] &lt;String&gt;] [-Prerequisites] &lt;PrerequisitesDataSet&gt; [[-ChunkSizeBytes] &lt;Int32&gt;] [-ShowProgress] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>Path</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The path to the folder that contains the pre-requisite files.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>PackageVersionKey</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The unique ID of the package version that the pre-requisites should be associated with.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PrerequisitesDataSet" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="2" globbing="false">
+          <Name>Prerequisites</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>A dataset containing the details for the pre-requisites.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Int32" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="3" globbing="false">
+          <Name>ChunkSizeBytes</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The number of bytes to upload at a time.</Description>
+          <DefaultValue>2097152</DefaultValue>
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ShowProgress</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided a standard progressbar will be shown whilst importing the pre-requisites.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples />
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Get-AppSenseManagementServerPrerequisite</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Export-AppSenseManagementServerPrerequisite</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Export" noun="AppSenseManagementServerPrerequisite">
+      <Name>Export-AppSenseManagementServerPrerequisite</Name>
+      <GeneralHelp>
+        <Synopsis>Exports the given prerequisites to the specified location.</Synopsis>
+        <Description>The Export-AppSenseManagementServerPrerequisite cmdlet exports the given prerequisites to the specified location.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription />
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="PackageVersionKey DestinationFolder ChunkSizeBytes ShowProgress TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Export-AppSenseManagementServerPrerequisite [-PackageVersionKey] &lt;String&gt; [-DestinationFolder] &lt;String&gt; [[-ChunkSizeBytes] &lt;Int32&gt;] [-ShowProgress] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>PackageVersionKey</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The unique ID of the package version that the pre-requisites should be associated with.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>DestinationFolder</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The location in which to save the exported files.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Int32" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="2" globbing="false">
+          <Name>ChunkSizeBytes</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The number of bytes to upload at a time.</Description>
+          <DefaultValue>2097152</DefaultValue>
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ShowProgress</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided a standard progressbar will be shown whilst importing the pre-requisites.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Export-AppSenseManagementServerPrerequisite -PackageVersionKey d2cb2c36-0a98-4a6f-84a9-51bcc2c3e7b6 -DestinationFolder C:\Temp -ShowProgress -TrackTime -Verbose</Cmd>
+          <Description />
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Get-AppSenseManagementServerPrerequisite</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Import-AppSenseManagementServerPrerequisite</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Set" noun="AppSenseManagementServerLogPath">
+      <Name>Set-AppSenseManagementServerLogPath</Name>
+      <GeneralHelp>
+        <Synopsis />
+        <Description />
+        <Notes />
+        <InputType />
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType />
+        <ReturnUrl />
+        <ReturnTypeDescription />
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="Path TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Set-AppSenseManagementServerLogPath [-Path] &lt;String&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>Path</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description />
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description />
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples />
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+  </Cmdlets>
+</ModuleObject>

@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<ModuleObject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" fVersion="1.1" type="Script" mclass="External" useSupports="false">
+  <Name>AppSenseDesktopNowAMCProducts</Name>
+  <Version>2015.10.12.0</Version>
+  <Description />
+  <ModulePath>.\AppSenseDesktopNowAMCProducts.psd1</ModulePath>
+  <HasManifest>false</HasManifest>
+  <OverridePostCount>false</OverridePostCount>
+  <FetchPostCount xsi:nil="true" />
+  <Cmdlets>
+    <CmdletObject verb="Get" noun="AppSenseManagementServerProduct">
+      <Name>Get-AppSenseManagementServerProduct</Name>
+      <GeneralHelp>
+        <Synopsis>Retrieves details about the products available in the AppSense Management Server.</Synopsis>
+        <Description>The Get-AppSenseManagementServerProduct cmdlet retrieves details about the products available in the AppSense Management Server.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;ManagementConsole.ProductsWebService.ProductsDataSet+ProductsRow[];ManagementConsole.ProductsWebService.ProductsDataSet</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$false if an error occurs;Array of ProductsRow as described by the Web Services API;A ProductsDataSet as described y the Web Services API</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="All" Params="ReturnDataSet TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ByKey" Params="ProductKey ReturnDataSet TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ByName" Params="Name ReturnDataSet TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Get-AppSenseManagementServerProduct [-ReturnDataSet] [-TrackTime]</string>
+        <string>Get-AppSenseManagementServerProduct -ProductKey &lt;String&gt; [-ReturnDataSet] [-TrackTime]</string>
+        <string>Get-AppSenseManagementServerProduct -Name &lt;String&gt; [-ReturnDataSet] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ReturnDataSet</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the results are returned as a dataset.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ProductKey</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Unique ID of the product to return details for.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Name</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Name of the product to return details for.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Get-AppSenseManagementServerProduct</Cmd>
+          <Description>This example will retrieve details about all products from the AppSense Management Server.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Get-AppSenseManagementServerProduct -Name "DataNow"</Cmd>
+          <Description />
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Set-AppSenseManagementServerProduct</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Set" noun="AppSenseManagementServerProduct">
+      <Name>Set-AppSenseManagementServerProduct</Name>
+      <GeneralHelp>
+        <Synopsis>Creates a product for use in the Management Server.</Synopsis>
+        <Description>The  cmdlet creates a product for use in the Management Server.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$true if the product has successfully been created and $false if an error occurred.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="IconString" Params="ProductKey ProductName IconString SupportsAgents SupportsConfigurations SupportsSoftware TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="IconFile" Params="ProductKey ProductName IconFile SupportsAgents SupportsConfigurations SupportsSoftware TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Set-AppSenseManagementServerProduct -ProductKey &lt;String&gt; -ProductName &lt;String&gt; -IconString &lt;String&gt; [-SupportsAgents] [-SupportsConfigurations] [-SupportsSoftware] [-TrackTime]</string>
+        <string>Set-AppSenseManagementServerProduct -ProductKey &lt;String&gt; -ProductName &lt;String&gt; -IconFile &lt;String&gt; [-SupportsAgents] [-SupportsConfigurations] [-SupportsSoftware] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ProductKey</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Unique ID of the product to create.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ProductName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the product to create.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>IconString</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The string of data that makes up the icon to use for the product.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>SupportsAgents</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided this identifies that the product supports agents.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>SupportsConfigurations</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided this identifies that the products supports configurations.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>SupportsSoftware</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided this identifies that the products supports software such as consoles.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>IconFile</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The path to the file that contains the icon to use for the product.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples />
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Get-AppSenseManagementServerProduct</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+  </Cmdlets>
+</ModuleObject>

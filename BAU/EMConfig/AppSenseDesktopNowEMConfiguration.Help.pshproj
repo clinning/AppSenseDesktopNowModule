@@ -1,0 +1,1509 @@
+<?xml version="1.0"?>
+<ModuleObject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" fVersion="1.1" type="Script" mclass="External" useSupports="false">
+  <Name>AppSenseDesktopNowEMConfiguration</Name>
+  <Version>2016.6.16.0</Version>
+  <Description />
+  <ModulePath>C:\Users\James\ownCloud\scripts\AppSense\AppSense API\AppSenseDesktopNowModule_WIP\BAU\EMConfig\AppSenseDesktopNowEMConfiguration.psd1</ModulePath>
+  <HasManifest>false</HasManifest>
+  <OverridePostCount>false</OverridePostCount>
+  <FetchPostCount xsi:nil="true" />
+  <Cmdlets>
+    <CmdletObject verb="Add" noun="AppSenseDesktopNowEMConfigurationActionOrCondition">
+      <Name>Add-AppSenseDesktopNowEMConfigurationActionOrCondition</Name>
+      <GeneralHelp>
+        <Synopsis>Creates and links and action or condition to the given parent.</Synopsis>
+        <Description>The Add-AppSenseDesktopNowEMConfigurationActionOrCondition cmdlet creates and links and action or condition to the given parent. </Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;System.Guid</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$false if an error occurs;The GUID of the created action or condition</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="NormalActionNew" Params="ActionType Parent Name Arguments Property Method TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="NormalConditionNew" Params="ConditionType Parent Name Arguments Property Method TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Add-AppSenseDesktopNowEMConfigurationActionOrCondition -ActionType &lt;String&gt; -Parent &lt;Object&gt; [-Name &lt;String&gt;] [-Arguments &lt;Object&gt;] [-Property &lt;Hashtable&gt;] [-Method &lt;Hashtable&gt;] [-TrackTime]</string>
+        <string>Add-AppSenseDesktopNowEMConfigurationActionOrCondition -ConditionType &lt;String&gt; -Parent &lt;Object&gt; [-Name &lt;String&gt;] [-Arguments &lt;Object&gt;] [-Property &lt;Hashtable&gt;] [-Method &lt;Hashtable&gt;] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="Object" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Parent</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The GUID of the parent to link the given action, condition or library item to.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Hashtable" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Property</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the given properties of the action or condition are set to the specified values.  Not all actions/conditions require this, the API documentation guide will highlight when this is required.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Hashtable" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Method</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the given methods of the action or condition are called using the specified arguments.  Not all actions/conditions require this, the API documentation guide will highlight when this is required.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ActionType</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The type of action that is to be created.  This should be as per the API guide.  The "EMConfigAPI.Actions" part of the action should be omitted.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Name</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name to give the action or condition.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Object" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Arguments</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The argument list to provide to the condition/action.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConditionType</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The type of condition that is to be created.  This should be as per the API guide.  The "EMConfigAPI.Conditions" part of the condition should be omitted.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Add-AppSenseDesktopNowEMConfigurationActionOrCondition -Parent "d960b321-5984-4466-92f2-e1e3fbe028cf" -ConditionType "UserProcessName" -Name "Notepad started" -Arguments Equal, "notepad.exe" -TrackTime -Verbose</Cmd>
+          <Description>This example adds a Process Name condition to the given parent.  In this scenario the parent must be a node linked to the Process Started trigger point.  The condition will be given the name "Notepad started" and must exactly match the process name "notepad.exe"</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Add-AppSenseDesktopNowEMConfigurationActionOrCondition -Parent "6d233ac0-7923-4d17-9b72-c0c320276eb7" -ActionType "RegistrySetValue" -Arguments "HKEY_CURRENT_USER", "Software\testkey", "testvalue", "" -Property @{"ValueEXPAND_SZ" = "%UserProfile%\Desktop"} -TrackTime -Verbose</Cmd>
+          <Description>This example will add an Registry Set Value action to the given parent.  The value to be set is HKCU\Software\testkey\testvalue.  This value should be of type EXPAND_SZ and set to the value "%UserProfile%\Desktop".</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 3</Name>
+          <Cmd>$grpName = "GLOBAL_Network Tools"
+Add-AppSenseDesktopNowEMConfigurationActionOrCondition -Parent "6d233ac0-7923-4d17-9b72-c0c320276eb7" -ConditionType "UserGroupMembership" -Name "User in $grpName" -Arguments Equal, $grpName, $null, $null, $true, $false -TrackTime -Verbose</Cmd>
+          <Description>This example will create a User Group condition to ensure that the user belongs to the "GLOBAL_Network Tools" group.  A friendly description will be given to the condition (identified by the -Name parameter).  The resulting condition will be linked to the given parent.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 4</Name>
+          <Cmd>Add-AppSenseDesktopNowEMConfigurationActionOrCondition -Parent "d960b321-5984-4466-92f2-e1e3fbe028cf" -ConditionType "CitrixClientSettings" -Method @{'SetClientOS'='Android'; 'SetClientVersion'=@([EMConfigAPI.Conditions.CitrixClientSettings+CitrixClientConditionOperator]::Equal, "1.2.3.4")} -TrackTime -Verbose</Cmd>
+          <Description>This example creates a Citrix Client Settings condition and links it to the given parent.  The condition will be configured to ensure that the expected client OS is Android and the client version is equal to "1.2.3.4".</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>New-AppSenseDesktopNowEMConfigurationIfElseExpression</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>New-AppSenseDesktopNowEMConfigurationElseIfExpression</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>New-AppSenseDesktopNowEMConfigurationNode</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>New-AppSenseDesktopNowEMConfigurationLibraryItem</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Add" noun="AppSenseDesktopNowEMConfigurationNodeGroupMember">
+      <Name>Add-AppSenseDesktopNowEMConfigurationNodeGroupMember</Name>
+      <GeneralHelp>
+        <Synopsis>Adds Reusable Nodes to a given Node Group.</Synopsis>
+        <Description>The Add-AppSenseDesktopNowEMConfigurationNodeGroupMember cmdlet adds Reusable Nodes to a given Node Group.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$true if completed successfully and $false if an error occurred.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="NodeGroupID Members TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Add-AppSenseDesktopNowEMConfigurationNodeGroupMember [-NodeGroupID] &lt;Guid&gt; [[-Members] &lt;Guid[]&gt;] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="Guid" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>NodeGroupID</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The GUID of the Node Group that the members should be added to.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Guid[]" varLen="true" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>Members</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Array of GUIDs for the Reusable Nodes that should be added as members of the Node Group.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Add-AppSenseDesktopNowEMConfigurationNodeGroupMember -NodeGroupID "e349eb16-6a3c-4a48-bcd7-95cb2fe970f4" -Members "ac86a3e1-7bae-43c0-b2cc-d13dfef527bd" -TrackTime -Verbose</Cmd>
+          <Description>This example will add a single Reusable Node to the given Node Group.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Add-AppSenseDesktopNowEMConfigurationNodeGroupMember -NodeGroupID "e349eb16-6a3c-4a48-bcd7-95cb2fe970f4" -Members "ac86a3e1-7bae-43c0-b2cc-d13dfef527bd", "bd88ac67-1422-4447-b947-8a872c970be8" -TrackTime -Verbose</Cmd>
+          <Description>This example will add a multiple Reusable Nodes to the given Node Group.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>New-AppSenseDesktopNowEMConfigurationNode</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Clear" noun="AppSenseDesktopNowEMConfiguration">
+      <Name>Clear-AppSenseDesktopNowEMConfiguration</Name>
+      <GeneralHelp>
+        <Synopsis>Resets the in-memory configuration to default</Synopsis>
+        <Description>The Clear-AppSenseDesktopNowEMConfiguration cmdlet resets the in-memory configuration to default.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$true if completed successfully and $false if an error occurred.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Clear-AppSenseDesktopNowEMConfiguration [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Clear-AppSenseDesktopNowEMConfiguration</Cmd>
+          <Description>This example will remove all items in the in-memory configuration and reset to default.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>New-AppSenseDesktopNowEMConfiguration</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Save-AppSenseDesktopNowEMConfiguration</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="New" noun="AppSenseDesktopNowEMConfiguration">
+      <Name>New-AppSenseDesktopNowEMConfiguration</Name>
+      <GeneralHelp>
+        <Synopsis>Initialises an in-memory configuration.</Synopsis>
+        <Description>The New-AppSenseDesktopNowEMConfiguration cmdlet initialises an in memory configuration ready for items to be added to it.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$true if completed successfully and $false if an error occurred.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>New-AppSenseDesktopNowEMConfiguration [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>New-AppSenseDesktopNowEMConfiguration -TrackTime -Verbose</Cmd>
+          <Description>This example will initialise an in-memory configuration with all defaults set.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Clear-AppSenseDesktopNowEMConfiguration</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Save-AppSenseDesktopNowEMConfiguration</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="New" noun="AppSenseDesktopNowEMConfigurationElseIfExpression">
+      <Name>New-AppSenseDesktopNowEMConfigurationElseIfExpression</Name>
+      <GeneralHelp>
+        <Synopsis>Creates an ElseIf expression and links it to the specified IfElse group.</Synopsis>
+        <Description>The New-AppSenseDesktopNowEMConfigurationElseIfExpression creates an ElseIf expression and links it to the specified IfElse group.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;System.Guid</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$false if an error occurs;The GUID of the added ElseIf expression</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="IfElseGroupID Parent Description TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>New-AppSenseDesktopNowEMConfigurationElseIfExpression [-IfElseGroupID] &lt;Guid&gt; [-Parent] &lt;Guid&gt; [-Description] &lt;String&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="Guid" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>IfElseGroupID</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The GUID of the IfElse group to add the ElseIf expression to.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Guid" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>Parent</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The GUID for the parent of the ElseIf expression.  This must be an If or ElseIf expression.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="2" globbing="false">
+          <Name>Description</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The description to give the ElseIf expression.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>New-AppSenseDesktopNowEMConfigurationElseIfExpression -IfElseGroupID "ac86a3e1-7bae-43c0-b2cc-d13dfef527bd" -Parent "bd88ac67-1422-4447-b947-8a872c970be8" -Description "___ ElseIf Description ___" -TrackTime -Verbose</Cmd>
+          <Description />
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>$ifGroup = New-AppSenseDesktopNowEMConfigurationIfElseExpression -Parent "bd88ac67-1422-4447-b947-8a872c970be8" -GroupDescription "___ Group Description ___" -Description "___ If Description ___" -TrackTime -Verbose
+$elseIf = New-AppSenseDesktopNowEMConfigurationElseIfExpression -IfElseGroupID $ifGroup.IfGroupGuid -Parent $ifGroup.IfExpressionGuid -Description "___ ElseIf Description ___" -TrackTime -Verbose</Cmd>
+          <Description>This example creates an IfElse expression group and links it to the given parent.  It then creates an ElseIf expression and links it to the previously created IfElse expression group.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>New-AppSenseDesktopNowEMConfigurationIfElseExpression</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="New" noun="AppSenseDesktopNowEMConfigurationIfElseExpression">
+      <Name>New-AppSenseDesktopNowEMConfigurationIfElseExpression</Name>
+      <GeneralHelp>
+        <Synopsis>Creates an If group and links it to the given parent.</Synopsis>
+        <Description>The New-AppSenseDesktopNowEMConfigurationIfElseExpression cmdlet creates an If group and links it to the given parent.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;System.Collections.Hashtable</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$false if an error occurs;A hashtable containing the following members: -
+
+ElseGuid = the GUID of the Else expression (used to add the conditions/actions to when evaluated to False)
+IfExpressionGuid = the GUID of the If expression (used to add the conditions/actions to when evaluated to True)
+IfGroupGuid = the GUID of the If group (used to add a condition to the expression)</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="Parent Description GroupDescription TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>New-AppSenseDesktopNowEMConfigurationIfElseExpression [-Parent] &lt;Guid&gt; [-Description] &lt;String&gt; [[-GroupDescription] &lt;String&gt;] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="Guid" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>Parent</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The GUID of the item to link the IfElse expression to.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>Description</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The description to give the If expression.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="2" globbing="false">
+          <Name>GroupDescription</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The description to give the If group.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>New-AppSenseDesktopNowEMConfigurationIfElseExpression -Parent "e349eb16-6a3c-4a48-bcd7-95cb2fe970f4" -GroupDescription "___ Group Description ___" -Description "___ If Description ___" -TrackTime -Verbose</Cmd>
+          <Description>Creates an IfGroup and links it to the specified parent.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>New-AppSenseDesktopNowEMConfigurationElseIfExpression</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Add-AppSenseDesktopNowEMConfigurationActionOrCondition</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="New" noun="AppSenseDesktopNowEMConfigurationNode">
+      <Name>New-AppSenseDesktopNowEMConfigurationNode</Name>
+      <GeneralHelp>
+        <Synopsis>Creates a node in the current in-memory configuration.</Synopsis>
+        <Description>The New-AppSenseDesktopNowEMConfigurationNode cmdlet creates nodes in the current in-memory configuration.  It will link these nodes at the given triggers or parents.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;System.Guid</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$false if an error occurs;The GUID of the added node</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="NewGroupParent" Params="Name Parent IsGroup TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="NewGroupTrigger" Params="Name Trigger IsGroup TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="NewNormalParent" Params="Name Parent TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="NewNormalTrigger" Params="Name Trigger TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>New-AppSenseDesktopNowEMConfigurationNode -Name &lt;String&gt; -Parent &lt;Guid&gt; -IsGroup &lt;SwitchParameter&gt; [-TrackTime]</string>
+        <string>New-AppSenseDesktopNowEMConfigurationNode -Name &lt;String&gt; -Trigger &lt;TriggerType&gt; -IsGroup &lt;SwitchParameter&gt; [-TrackTime]</string>
+        <string>New-AppSenseDesktopNowEMConfigurationNode -Name &lt;String&gt; -Parent &lt;Guid&gt; [-TrackTime]</string>
+        <string>New-AppSenseDesktopNowEMConfigurationNode -Name &lt;String&gt; -Trigger &lt;TriggerType&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Name</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name to be given to the node.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Guid" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Parent</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The GUID of the node to attach this node to.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>IsGroup</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the node is created as Node Group.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="TriggerType" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Trigger</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the node is linked to the given trigger point.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>New-AppSenseDesktopNowEMConfigurationNode -Name "Node1" -Trigger UserPreDesktop -TrackTime -Verbose</Cmd>
+          <Description>This example creates a node called "Node1" linked to the Pre-Desktop trigger.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>New-AppSenseDesktopNowEMConfigurationNode -Name "NodeGroup1" -Trigger UserPreSession -IsGroup -TrackTime -Verbose</Cmd>
+          <Description>This example creates creates a Node Group called "NodeGroup1" linked to the Pre-Session trigger.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 3</Name>
+          <Cmd>New-AppSenseDesktopNowEMConfigurationNode -Name "Notepad" -Trigger UserProcessStarted -TrackTime -Verbose</Cmd>
+          <Description>This example creates a node called "Notepad" and links it to the Process Started trigger on the user side.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Add-AppSenseDesktopNowEMConfigurationNodeGroupMember</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Add-AppSenseDesktopNowEMConfigurationActionOrCondition</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="New" noun="AppSenseDesktopNowEMConfigurationPersonalizationServer">
+      <Name>New-AppSenseDesktopNowEMConfigurationPersonalizationServer</Name>
+      <GeneralHelp>
+        <Synopsis>Adds a server or Virtual Host to the Personalization Server list in the configuration.</Synopsis>
+        <Description>The New-AppSenseDesktopNowEMConfigurationPersonalizationServer cmdlet adds a server or Virtual Host to the Personalization Server list in the configuration.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$true if completed successfully and $false if an error occurred.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="Plain" Params="FriendlyName Server Port UseHTTPS TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="VirtualHost" Params="FriendlyName Server Port UseHTTPS Retries RetryDelay IsVirtualHost TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>New-AppSenseDesktopNowEMConfigurationPersonalizationServer [-FriendlyName &lt;String&gt;] -Server &lt;String&gt; [-Port &lt;Int32&gt;] [-UseHTTPS] [-TrackTime]</string>
+        <string>New-AppSenseDesktopNowEMConfigurationPersonalizationServer [-FriendlyName &lt;String&gt;] -Server &lt;String&gt; [-Port &lt;Int32&gt;] [-UseHTTPS] [-Retries &lt;Int32&gt;] [-RetryDelay &lt;Int32&gt;] [-IsVirtualHost] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>FriendlyName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>A friendly name to give to the added Personalization Server.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Server</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The FQDN of the server to add to the Personalization Server list.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Int32" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Port</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The port number that should be used to communicate with the server.  A value if 0 will use the default according to the protocol in use.</Description>
+          <DefaultValue>0</DefaultValue>
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>UseHTTPS</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the server connection will use an HTTPS connection.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Int32" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Retries</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The number of retries for the virtual host.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Int32" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>RetryDelay</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Timeout between the retries.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>IsVirtualHost</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the server being added is deemed to be a virtual host.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>New-AppSenseDesktopNowEMConfigurationPersonalizationServer -Server "emps.test.local" -FriendlyName "Test EMPS" -Port 443 -UseHTTPS -TrackTime -Verbose</Cmd>
+          <Description>This example will create a Personalization Server entry in the configuration list that uses HTTPS over port 443.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>New-AppSenseDesktopNowEMConfigurationPersonalizationServer -Server "emps.test.local" -FriendlyName "TestVH" -IsVirtualHost -TrackTime -Verbose</Cmd>
+          <Description>This example will add a Virtual Host to the Personalization Server list using default values for the retries and timeout.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 3</Name>
+          <Cmd>New-AppSenseDesktopNowEMConfigurationPersonalizationServer -Server "emps.test.local" -FriendlyName "TestVH1" -IsVirtualHost -Retries 3 -RetryDelay 100 -TrackTime -Verbose</Cmd>
+          <Description>This example will add a Virtual Host to the Personalization Server list in the configuration.  It will retry 3 times with a timeout of 100ms.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="New" noun="AppSenseDesktopNowEMConfigurationRunAsUser">
+      <Name>New-AppSenseDesktopNowEMConfigurationRunAsUser</Name>
+      <GeneralHelp>
+        <Synopsis>Adds a user the RunAs User library.</Synopsis>
+        <Description>The New-AppSenseDesktopNowEMConfigurationRunAsUser cmdlet adds a user the RunAs User library.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$true if completed successfully and $false if an error occurred.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="Plain" Params="FriendlyName Username Password TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="Credentials" Params="FriendlyName Credentials TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>New-AppSenseDesktopNowEMConfigurationRunAsUser -FriendlyName &lt;String&gt; -Username &lt;String&gt; [-Password &lt;String&gt;] [-TrackTime]</string>
+        <string>New-AppSenseDesktopNowEMConfigurationRunAsUser -FriendlyName &lt;String&gt; -Credentials &lt;PSCredential&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>FriendlyName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The friendly name for the item being added.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Username</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The username to add.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Password</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The password for the specified user being added.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Credentials</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>A credential object containing the username and password of the user to add.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>New-AppSenseDesktopNowEMConfigurationRunAsUser -FriendlyName "RunAsUser1" -Username "test" -Password "test" -TrackTime -Verbose</Cmd>
+          <Description>This example create a RunAs User library entry for the "test" user using the given password.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>New-AppSenseDesktopNowEMConfigurationRunAsUser -FriendlyName "RunAsUser2" -Credentials (Get-Credential -UserName "TEST\testuser" -Message "Creds for RunAsUser2") -TrackTime -Verbose</Cmd>
+          <Description>This example will create a RunAs User library entry for the "TEST\testuser" account.  It will prompt for a password to be entered.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Save" noun="AppSenseDesktopNowEMConfiguration">
+      <Name>Save-AppSenseDesktopNowEMConfiguration</Name>
+      <GeneralHelp>
+        <Synopsis>Saves the configuration to disk.</Synopsis>
+        <Description>The Save-AppSenseDesktopNowEMConfiguration cmdlet saves the in memory configuration to disk.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$true if completed successfully and $false if an error occurred.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="Path TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Save-AppSenseDesktopNowEMConfiguration [-Path] &lt;String&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>Path</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The path to save the configuration to.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Save-AppSenseDesktopNowEMConfiguration -Path "C:\Temp\test.aemp" -TrackTime -Verbose</Cmd>
+          <Description>This example will save the configuration to the "C:\Temp\test.aemp" file</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>New-AppSenseDesktopNowEMConfiguration</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Clear-AppSenseDesktopNowEMConfiguration</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Set" noun="AppSenseDesktopNowEMConfigurationAuditing">
+      <Name>Set-AppSenseDesktopNowEMConfigurationAuditing</Name>
+      <GeneralHelp>
+        <Synopsis>Enables/disables local event logging for the configuration.</Synopsis>
+        <Description>The Set-AppSenseDesktopNowEMConfigurationAuditing cmdlet enables/disables local event logging for the configuration.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$true if completed successfully and $false if an error occurred.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="SendToApplicationEventLog SendToAppSenseEventLog SendToLocalLogFile UseAnonymousEvents LocalLogFileFormat LocalLogFilePath Events TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Set-AppSenseDesktopNowEMConfigurationAuditing [-SendToApplicationEventLog] [-SendToAppSenseEventLog] [-SendToLocalLogFile] [-UseAnonymousEvents] [[-LocalLogFileFormat] &lt;LocalAuditLogFormat&gt;] [[-LocalLogFilePath] &lt;String&gt;] [-Events] &lt;Int32[]&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>SendToApplicationEventLog</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the auditing information is sent to the standard Microsoft event log.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>SendToAppSenseEventLog</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the auditing information is sent to the AppSense event log.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>SendToLocalLogFile</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the auditing information is sent to a local log file.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>UseAnonymousEvents</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the auditing information is anonymised before storing.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="LocalAuditLogFormat" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>LocalLogFileFormat</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The format in which to store auditing information in the local log file.</Description>
+          <DefaultValue>XML</DefaultValue>
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>LocalLogFilePath</Name>
+          <Attributes>
+            <string>System.Management.Automation.AllowEmptyStringAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The path to the local log file.  If this is not provided but local log file auditing is enabled then the default value as per the console is used.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Int32[]" varLen="true" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="2" globbing="false">
+          <Name>Events</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Array of the event IDs that are to be audited.  Any invalid values are ignored.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Set-AppSenseDesktopNowEMConfigurationAuditing -SendToApplicationEventLog -SendToAppSenseEventLog -UseAnonymousEvents -SendToLocalLogFile -Events @(9302, 9303, 1000) -TrackTime -Verbose</Cmd>
+          <Description>This example enables logging to the standard Application event log and the AppSense event log.  It also enables sending to a local log file using the default location and format as per the console.  Events will be anonymised before being written.  Event IDs 9302 and 9303 will be enabled whilst 1000 will be ignored.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Set" noun="AppSenseDesktopNowEMConfigurationCustomSetting">
+      <Name>Set-AppSenseDesktopNowEMConfigurationCustomSetting</Name>
+      <GeneralHelp>
+        <Synopsis>Adds custom settings to the configuration.</Synopsis>
+        <Description>The Set-AppSenseDesktopNowEMConfigurationCustomSetting cmdlet adds custom settings to the configuration.
+The provided custom setting names must match those used in the console.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$true if completed successfully and $false if an error occurred.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="Name Value TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Set-AppSenseDesktopNowEMConfigurationCustomSetting [-Name] &lt;String&gt; [[-Value] &lt;String[]&gt;] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>Name</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the custom setting</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String[]" varLen="true" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>Value</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The value of the custom setting.  An array of values can be passed in for those settings that allow multistring values.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Set-AppSenseDesktopNowEMConfigurationCustomSetting -Name AddPrinterConnectionRetry -Value 1 -TrackTime -Verbose
+</Cmd>
+          <Description>This example will set the AddPRinterConnectionRetry custom setting to a value of 1.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Set-AppSenseDesktopNowEMConfigurationCustomSetting -Name AddPrinterSequential -TrackTime -Verbose
+</Cmd>
+          <Description>This example sets the AddPrinterSequential custom setting using the default value.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 3</Name>
+          <Cmd>Set-AppSenseDesktopNowEMConfigurationCustomSetting -Name PrinterErrorCodes -Value 9018, 9012 -TrackTime -Verbose</Cmd>
+          <Description>This example sets the PrinterErrorCodes custom setting to "9018,9012".  It does this by passing the list of required values in.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Set" noun="AppSenseDesktopNowEMConfigurationSetting">
+      <Name>Set-AppSenseDesktopNowEMConfigurationSetting</Name>
+      <GeneralHelp>
+        <Synopsis>Allows setting of the Configuration Settings options.</Synopsis>
+        <Description>The Set-AppSenseDesktopNowEMConfigurationSetting cmdlet allows setting of the Configuration Settings options.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$true if completed successfully and $false if an error occurred.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="ApplyMidSessionConfigChange EnableExtraNetworkNotifications EnableLogonSubtriggers ResumeInterruptedFolderCopy TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Set-AppSenseDesktopNowEMConfigurationSetting [[-ApplyMidSessionConfigChange] &lt;ConfigChangeType&gt;] [-EnableExtraNetworkNotifications] [-EnableLogonSubtriggers] [-ResumeInterruptedFolderCopy] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="ConfigChangeType" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>ApplyMidSessionConfigChange</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the "Mid-session config changes" option will be set to the supplied value.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>EnableExtraNetworkNotifications</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the "Enable individual network adapter notifications" option will be enabled.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>EnableLogonSubtriggers</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the "Enable logon sub-triggers" option will be enabled.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ResumeInterruptedFolderCopy</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the "Resume interrupted folder copy operations at next user logon" option will be enabled.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Set-AppSenseDesktopNowEMConfigurationSetting -ApplyMidSessionConfigChange Immediately -EnableExtraNetworkNotifications:$false -EnableLogonSubtriggers -ResumeInterruptedFolderCopy:$false -TrackTime -Verbose</Cmd>
+          <Description>This example will set the mid-session config changes to Immediately and disable network notifications per adapter.  It will also ensure that logon sub-triggers are enabled and disabled the resumption of folder copy actions.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Set" noun="AppSenseDesktopNowEMLogPath">
+      <Name>Set-AppSenseDesktopNowEMLogPath</Name>
+      <GeneralHelp>
+        <Synopsis />
+        <Description />
+        <Notes />
+        <InputType />
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType />
+        <ReturnUrl />
+        <ReturnTypeDescription />
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="Path TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Set-AppSenseDesktopNowEMLogPath [-Path] &lt;String&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>Path</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description />
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description />
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples />
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Use" noun="AppSenseDesktopNowEMConfigurationLibraryItem">
+      <Name>Use-AppSenseDesktopNowEMConfigurationLibraryItem</Name>
+      <GeneralHelp>
+        <Synopsis>Links a previously created library item to the specified parent.</Synopsis>
+        <Description>The Use-AppSenseDesktopNowEMConfigurationLibraryItem cmdlet links a previously created library item to the specified parent.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;System.Guid</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$false if an error occurs;The GUID of the linked library item</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="ReusableNodeTrigger" Params="ReusableNode Trigger TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ReusableNodeParent" Params="ReusableNode Parent TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ReusableCondition" Params="ReusableCondition Parent TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Use-AppSenseDesktopNowEMConfigurationLibraryItem -ReusableNode &lt;Guid&gt; -Trigger &lt;TriggerType&gt; [-TrackTime]</string>
+        <string>Use-AppSenseDesktopNowEMConfigurationLibraryItem -ReusableNode &lt;Guid&gt; -Parent &lt;Guid&gt; [-TrackTime]</string>
+        <string>Use-AppSenseDesktopNowEMConfigurationLibraryItem -ReusableCondition &lt;Guid&gt; -Parent &lt;Guid&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="Guid" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ReusableNode</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The GUID of the reusable node to link to the given parent or trigger.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="TriggerType" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Trigger</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The trigger point to which the Reusable Node should be linked.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Guid" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Parent</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The GUID of the parent that the Reusable Condition/Node is to be linked to.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Guid" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ReusableCondition</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The GUID of the reusable condition to link to the given parent.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Use-AppSenseDesktopNowEMConfigurationLibraryItem -ReusableNode "d960b321-5984-4466-92f2-e1e3fbe028cf" -Trigger UserDesktopCreated -TrackTime -Verbose</Cmd>
+          <Description>This example will link the specified Reusable Node to the Desktop Created trigger point.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Use-AppSenseDesktopNowEMConfigurationLibraryItem -ReusableNode "d960b321-5984-4466-92f2-e1e3fbe028cf" -Parent "6d233ac0-7923-4d17-9b72-c0c320276eb7" -TrackTime -Verbose</Cmd>
+          <Description>This example will link the given Reusable Node to the given parent.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 3</Name>
+          <Cmd>Use-AppSenseDesktopNowEMConfigurationLibraryItem -Parent "d960b321-5984-4466-92f2-e1e3fbe028cf" -ReusableCondition "6d233ac0-7923-4d17-9b72-c0c320276eb7" -TrackTime</Cmd>
+          <Description>This example links the given Reusable Condition to the given parent.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>New-AppSenseDesktopNowEMConfigurationLibraryItem</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Add-AppSenseDesktopNowEMConfigurationActionOrCondition</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="New" noun="AppSenseDesktopNowEMConfigurationLibraryItem">
+      <Name>New-AppSenseDesktopNowEMConfigurationLibraryItem</Name>
+      <GeneralHelp>
+        <Synopsis>Creates a new item in the configuration library section.</Synopsis>
+        <Description>The New-AppSenseDesktopNowEMConfigurationLibraryItem cmdlet Creates a new item in the configuration library section.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;System.Guid</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$false if an error occurs;The unique ID of the added library item</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="RN" Params="Name IsReusableNode TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="RC" Params="Name IsReusableCondition TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>New-AppSenseDesktopNowEMConfigurationLibraryItem -Name &lt;String&gt; -IsReusableNode &lt;SwitchParameter&gt; [-TrackTime]</string>
+        <string>New-AppSenseDesktopNowEMConfigurationLibraryItem -Name &lt;String&gt; -IsReusableCondition &lt;SwitchParameter&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Name</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name to be given to the library item.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>IsReusableNode</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the library item will be deemed a reusable node.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>IsReusableCondition</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the library item will be deemed a reusable condition.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>New-AppSenseDesktopNowEMConfigurationLibraryItem -IsReusableCondition -Name "ReusableCondition1" -TrackTime -Verbose</Cmd>
+          <Description>This example creates a Reusable Condition named "ReusableCondition1"</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>New-AppSenseDesktopNowEMConfigurationLibraryItem -Name "ReusableNode1" -IsReusableNode -TrackTime -Verbose</Cmd>
+          <Description>This example creates a Reusable Node named "ReusableNode1".</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Use-AppSenseDesktopNowEMConfigurationLibraryItem</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Import" noun="AppSenseDesktopNowEMConfigurationTemplate">
+      <Name>Import-AppSenseDesktopNowEMConfigurationTemplate</Name>
+      <GeneralHelp>
+        <Synopsis>Imports the given template to the given parent/trigger.</Synopsis>
+        <Description>The  cmdlet imports the given template to the given parent/trigger.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;System.Guid</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$false if an error occurs;The GUID of the top most node that was imported</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="ByParent" Params="Template Parent TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ByTrigger" Params="Template Trigger TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Import-AppSenseDesktopNowEMConfigurationTemplate -Template &lt;String&gt; -Parent &lt;Guid&gt; [-TrackTime]</string>
+        <string>Import-AppSenseDesktopNowEMConfigurationTemplate -Template &lt;String&gt; -Trigger &lt;TriggerType&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Template</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Path to the template file to import.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Guid" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Parent</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The parent node to import the template to.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="TriggerType" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Trigger</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The trigger point to import the template to.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Import-AppSenseDesktopNowEMConfigurationTemplate -Template ".\import_test.xml" -Trigger UserDesktopCreated -TrackTime -Verbose
+</Cmd>
+          <Description>This example will import the template defined in "import_test.xml" to the Desktop Created trigger.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Import-AppSenseDesktopNowEMConfigurationTemplate -Template ".\import_test.xml" -Parent "d960b321-5984-4466-92f2-e1e3fbe028cf" -TrackTime -Verbose</Cmd>
+          <Description>This example will import the template in "import_test.xml" to the given parent node.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+  </Cmdlets>
+</ModuleObject>

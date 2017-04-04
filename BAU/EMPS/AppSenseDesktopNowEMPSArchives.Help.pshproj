@@ -1,0 +1,354 @@
+<?xml version="1.0"?>
+<ModuleObject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" fVersion="1.1" type="Script" mclass="External" useSupports="false">
+  <Name>AppSenseDesktopNowEMPSArchives</Name>
+  <Version>2016.4.20.0</Version>
+  <Description>Meta module for the BAU tasks required for the archives</Description>
+  <ModulePath>C:\Users\jamess\ownCloud\scripts\AppSense\AppSense API\AppSenseDesktopNowModule_WIP\BAU\EMPS\AppSenseDesktopNowEMPSArchives.psd1</ModulePath>
+  <HasManifest>false</HasManifest>
+  <OverridePostCount>false</OverridePostCount>
+  <FetchPostCount xsi:nil="true" />
+  <Cmdlets>
+    <CmdletObject verb="Get" noun="AppSensePersonalizationArchive">
+      <Name>Get-AppSensePersonalizationArchive</Name>
+      <GeneralHelp>
+        <Synopsis>Retrieves an archive that matches the given criteria.</Synopsis>
+        <Description>The Get-AppSensePersonalizationArchive cmdlet retrieves an archive that matches the given criteria.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;profilemanagement.profileservice.datacontracts.ProfileAnalysisArchive[],profilemanagement.profileservice.datacontracts.ProfileAnalysisArchive</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$false if an error occurs;Array of ProfileAnalysisArchive types as per the API documentation;A single ProfileAnalysisArchive as per the API documentation</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="All" Params="PersonalizationGroup User Application TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ClosestTo" Params="PersonalizationGroup User Application ClosestTo TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ProtectedArchive" Params="PersonalizationGroup User Application ProtectedOnly TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="LatestArchive" Params="PersonalizationGroup User Application LatestOnly TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Get-AppSensePersonalizationArchive -PersonalizationGroup &lt;String&gt; -User &lt;String&gt; [-Application &lt;String&gt;] [-TrackTime]</string>
+        <string>Get-AppSensePersonalizationArchive -PersonalizationGroup &lt;String&gt; -User &lt;String&gt; [-Application &lt;String&gt;] -ClosestTo &lt;DateTime&gt; [-TrackTime]</string>
+        <string>Get-AppSensePersonalizationArchive -PersonalizationGroup &lt;String&gt; -User &lt;String&gt; [-Application &lt;String&gt;] -ProtectedOnly &lt;SwitchParameter&gt; [-TrackTime]</string>
+        <string>Get-AppSensePersonalizationArchive -PersonalizationGroup &lt;String&gt; -User &lt;String&gt; [-Application &lt;String&gt;] -LatestOnly &lt;SwitchParameter&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>PersonalizationGroup</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the Personalization Group that the report should be run against.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>User</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The username to retrieve the archive report for.  The username should be in the format DOMAIN\username.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Application</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the Application Group to return archives for.  If this is not supplied then all archives are returned as per the Get-AppSensePersonalizationArchiveReport cmdlet.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="DateTime" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ClosestTo</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied, only the archive closest to the specified date is returned.  Only archives before the given date are considered in this filter.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ProtectedOnly</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied, only archives which are protected are returned.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>LatestOnly</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied, only the latest archive is returned.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Get-AppSensePersonalizationArchive -PersonalizationGroup "Test PG" -User "TEST\testuser" -Application "Microsoft Internet Explorer Group" -TrackTime -Verbose</Cmd>
+          <Description>In this example, only archives for the "Microsoft Internet Explorer Group" application belonging to the "TEST\testuser" are returned, and only if they are linked to the "Test PG" Personalization Group.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Get-AppSensePersonalizationArchive -PersonalizationGroup "Test PG" -User "TEST\testuser" -Application "Microsoft Internet Explorer Group" -ClosestTo (Get-Date "01/06/2016") -TrackTime -Verbose</Cmd>
+          <Description>In this example, a single archive that is closest to the given date (but not after it) for the "Microsoft Internet Explorer Group" application belonging to the "TEST\testuser" is returned, and only if it is linked to the "Test PG" Personalization Group.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Get-AppSensePersonalizationArchiveReport</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Restore-AppSensePersonalizationArchive</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Get" noun="AppSensePersonalizationArchiveReport">
+      <Name>Get-AppSensePersonalizationArchiveReport</Name>
+      <GeneralHelp>
+        <Synopsis>Retrieves a report of all the archives available for the given user in the specified Personalisation Group.</Synopsis>
+        <Description>The Get-AppSensePersonalizationArchiveReport cmdlet retrieves a report of all the archives available for the given user in the specified Personalisation Group.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;profilemanagement.profileservice.datacontracts.ProfileAnalysisArchive[]</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$false if an error occurs;Array of ProfileAnalysisArchive types as per the API documentation</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="PersonalizationGroup User TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Get-AppSensePersonalizationArchiveReport [-PersonalizationGroup] &lt;String&gt; [-User] &lt;String&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>PersonalizationGroup</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the Personalization Group that the report should be run against.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>User</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The username to retrieve the archive report for.  The username should be in the format DOMAIN\username.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Get-AppSensePersonalizationArchiveReport -PersonalizationGroup "Test PG" -User "TEST\testuser" -TrackTime -Verbose</Cmd>
+          <Description>This example will return all archives for the TEST\testuser account in the "Test PG" Personalization Group.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Restore" noun="AppSensePersonalizationArchive">
+      <Name>Restore-AppSensePersonalizationArchive</Name>
+      <GeneralHelp>
+        <Synopsis>Restores an application to the specified archive.</Synopsis>
+        <Description>The Restore-AppSensePersonalizationArchive cmdlet </Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl>$false if an error occurs otherwise $true</ReturnUrl>
+        <ReturnTypeDescription />
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="All" Params="PersonalizationGroup User Application TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ClosestTo" Params="PersonalizationGroup User Application ClosestTo TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ProtectedArchive" Params="PersonalizationGroup User Application ProtectedOnly TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="LatestArchive" Params="PersonalizationGroup User Application LatestOnly TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Restore-AppSensePersonalizationArchive -PersonalizationGroup &lt;String&gt; -User &lt;String&gt; [-Application &lt;String&gt;] [-TrackTime]</string>
+        <string>Restore-AppSensePersonalizationArchive -PersonalizationGroup &lt;String&gt; -User &lt;String&gt; [-Application &lt;String&gt;] -ClosestTo &lt;DateTime&gt; [-TrackTime]</string>
+        <string>Restore-AppSensePersonalizationArchive -PersonalizationGroup &lt;String&gt; -User &lt;String&gt; [-Application &lt;String&gt;] -ProtectedOnly &lt;SwitchParameter&gt; [-TrackTime]</string>
+        <string>Restore-AppSensePersonalizationArchive -PersonalizationGroup &lt;String&gt; -User &lt;String&gt; [-Application &lt;String&gt;] -LatestOnly &lt;SwitchParameter&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>PersonalizationGroup</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the Personalization Group that the report should be run against.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>User</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The username to retrieve the archive report for.  The username should be in the format DOMAIN\username.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Application</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the Application Group to return archives for.  If this is not supplied then all archives are returned as per the Get-AppSensePersonalizationArchiveReport cmdlet.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="DateTime" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ClosestTo</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied, only the archive closest to the specified date is returned.  Only archives before the given date are considered in this filter.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ProtectedOnly</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied, only archives which are protected are returned.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>LatestOnly</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied, only the latest archive is returned.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Restore-AppSensePersonalizationArchive -PersonalizationGroup "Test PG" -User "TEST\testuser" -Application "Microsoft Internet Explorer Group" -ClosestTo (Get-Date "01/06/2016") -TrackTime -Verbose</Cmd>
+          <Description>In this example, the "Microsoft Internet Explorer Group" is restored to the closest archive to the given date for the user "TEST\testuser".</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Set" noun="AppSensePersonalizationLogPath">
+      <Name>Set-AppSensePersonalizationLogPath</Name>
+      <GeneralHelp>
+        <Synopsis />
+        <Description />
+        <Notes />
+        <InputType />
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType />
+        <ReturnUrl />
+        <ReturnTypeDescription />
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="Path TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Set-AppSensePersonalizationLogPath [-Path] &lt;String&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>Path</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description />
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description />
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples />
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+  </Cmdlets>
+</ModuleObject>

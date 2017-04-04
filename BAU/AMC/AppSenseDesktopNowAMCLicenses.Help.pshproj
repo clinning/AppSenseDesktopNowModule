@@ -1,0 +1,367 @@
+<?xml version="1.0"?>
+<ModuleObject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" fVersion="1.1" type="Script" mclass="External" useSupports="false">
+  <Name>AppSenseDesktopNowAMCLicenses</Name>
+  <Version>2015.11.12.0</Version>
+  <Description />
+  <ModulePath>.\AppSenseDesktopNowAMCLicenses.psd1</ModulePath>
+  <HasManifest>false</HasManifest>
+  <OverridePostCount>false</OverridePostCount>
+  <FetchPostCount xsi:nil="true" />
+  <Cmdlets>
+    <CmdletObject verb="Get" noun="AppSenseManagementServerLicense">
+      <Name>Get-AppSenseManagementServerLicense</Name>
+      <GeneralHelp>
+        <Synopsis>Retrieves matching licenses from the AppSense Management Server.</Synopsis>
+        <Description>The Get-AppSenseManagementServerLicense cmdlet retrieves matching licenses from the AppSense Management Server.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;ManagementConsole.LicensesWebService.LicensesDataSet+LicensesRow;ManagementConsole.LicensesWebService.LicensesDataSet;System.Management.Automation.PSCustomObject</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$false if an error occurs;Array of LicensesRow as described by the Web Services API;Returns a LicensesDataSet in accordance with the Web Services API;When both v1 and v2 licenses are requested a custom object is returned with properties relating to the license type.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="All" Params="ReturnDataSet V1Licenses V2Licenses TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ByCode" Params="LicenseCode ReturnDataSet V1Licenses V2Licenses TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ExpireInDays" Params="ExpireInDays ReturnDataSet V1Licenses V2Licenses TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="AllExpired" Params="ExpiredOnly ReturnDataSet V1Licenses V2Licenses TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Get-AppSenseManagementServerLicense [-ReturnDataSet] [-V1Licenses] [-V2Licenses] [-TrackTime]</string>
+        <string>Get-AppSenseManagementServerLicense -LicenseCode &lt;String&gt; [-ReturnDataSet] [-V1Licenses] [-V2Licenses] [-TrackTime]</string>
+        <string>Get-AppSenseManagementServerLicense -ExpireInDays &lt;Int32&gt; [-ReturnDataSet] [-V1Licenses] [-V2Licenses] [-TrackTime]</string>
+        <string>Get-AppSenseManagementServerLicense -ExpiredOnly &lt;SwitchParameter&gt; [-ReturnDataSet] [-V1Licenses] [-V2Licenses] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ReturnDataSet</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the results are returned as a dataset.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>LicenseCode</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The code of the license to return details for.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ExpiredOnly</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided, only the expired licenses will be returned.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>V1Licenses</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When specified only v1 licenses will be returned (these are used by v8 and below - they can be distributed using a v10 console though).</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>V2Licenses</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When specified only V2 licenses will be returned (these are used by v10 and above).</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Int32" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ExpireInDays</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Licenses will be returned that expire within the given number of days.  This will include any already expired licenses.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Get-AppSenseManagementServerLicense</Cmd>
+          <Description>This example retrieves all licenses from the AppSense Management Server where the license version is that native to the server (v1 for lower than v10 and v2 for greater or equal to v10).</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Get-AppSenseManagementServerLicense -LicenseCode 12345678-12345678-12345678</Cmd>
+          <Description>This example retrieves details about only the specified license.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 3</Name>
+          <Cmd>Get-AppSenseManagementServerLicense -ExpiredOnly</Cmd>
+          <Description>This example retrieves only those licenses which have expired.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 4</Name>
+          <Cmd>Get-AppSenseManagementServerLicense -ExpireInDays 30</Cmd>
+          <Description>This example retrieves only those license that will have expired within the next 30 days.  This will include any licenses which have already expired.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Set-AppSenseManagementServerLicense</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Remove-AppSenseManagementServerLicense</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Remove" noun="AppSenseManagementServerLicense">
+      <Name>Remove-AppSenseManagementServerLicense</Name>
+      <GeneralHelp>
+        <Synopsis>Deletes the specified license from the AppSense Management Server.</Synopsis>
+        <Description>The Remove-AppSenseManagementServerLicense cmdlet deletes the specified license from the AppSense Management Server.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>
+$true if the license was successfully deleted and $false if an error occurred.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="ByCode" Params="LicenseCode TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable WhatIf Confirm" />
+      </ParamSets>
+      <Syntax>
+        <string>Remove-AppSenseManagementServerLicense -LicenseCode &lt;String&gt; [-TrackTime] [-WhatIf] [-Confirm]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>LicenseCode</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The code of the license to be deleted.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>WhatIf</Name>
+          <Attributes>
+            <string>System.Management.Automation.AliasAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases>
+            <string>wi</string>
+          </Aliases>
+          <Description>Alerts what would have been carried out if this parameter was not supplied.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Confirm</Name>
+          <Attributes>
+            <string>System.Management.Automation.AliasAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases>
+            <string>cf</string>
+          </Aliases>
+          <Description>Prompts for confirmation before attempting to delete the matching user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Remove-AppSenseManagementServerLicense -LicenseCode 12345678-12345678-12345678</Cmd>
+          <Description>This example deletes the specified license from the AppSense Management Server.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Remove-AppSenseManagementServerLicense -LicenseCode 12345678-12345678-12345678 -Confirm</Cmd>
+          <Description>This example deletes the specified license from the AppSense Management Server prompting for confirmation.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Set-AppSenseManagementServerLicense</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Get-AppSenseManagementServerLicense</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Set" noun="AppSenseManagementServerLicense">
+      <Name>Set-AppSenseManagementServerLicense</Name>
+      <GeneralHelp>
+        <Synopsis>Creates or updates the given license.</Synopsis>
+        <Description>The Set-AppSenseManagementServerLicense cmdlet creates or updates the given license.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;System.String</ReturnType>
+        <ReturnUrl>;</ReturnUrl>
+        <ReturnTypeDescription>
+$true if the license was successfully updated and $false if an error occurred;
+The unique ID of the license that was created</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="LicenseCode ActivationCode TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Set-AppSenseManagementServerLicense [-LicenseCode] &lt;String&gt; [[-ActivationCode] &lt;String&gt;] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>LicenseCode</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The code of the license to create or update.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>ActivationCode</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The activation code of the license to create or update.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Set-AppSenseManagementServerLicense -LicenseCode 12345678-12345678-12345678</Cmd>
+          <Description>This example will add the specified license code to the AppSense Management Server.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Set-AppSenseManagementServerLicense -LicenseCode 12345678-12345678-12345678 -ActivationCode 12345678</Cmd>
+          <Description>This example will add the specified license and activation code to the AppSense Management Server.  If the license code already exists then it will update the activation code.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Get-AppSenseManagementServerLicense</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Remove-AppSenseManagementServerLicense</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Set" noun="AppSenseManagementServerLogPath">
+      <Name>Set-AppSenseManagementServerLogPath</Name>
+      <GeneralHelp>
+        <Synopsis />
+        <Description />
+        <Notes />
+        <InputType />
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType />
+        <ReturnUrl />
+        <ReturnTypeDescription />
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="Path TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Set-AppSenseManagementServerLogPath [-Path] &lt;String&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>Path</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description />
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description />
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples />
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+  </Cmdlets>
+</ModuleObject>

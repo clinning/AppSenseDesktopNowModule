@@ -1,0 +1,2338 @@
+<?xml version="1.0"?>
+<ModuleObject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" fVersion="1.1" type="Script" mclass="External" useSupports="false">
+  <Name>AppSenseDesktopNowConfiguration</Name>
+  <Version>2015.8.24.1</Version>
+  <Description />
+  <ModulePath>.\AppSenseDesktopNowConfiguration.psd1</ModulePath>
+  <HasManifest>false</HasManifest>
+  <OverridePostCount>false</OverridePostCount>
+  <FetchPostCount xsi:nil="true" />
+  <Cmdlets>
+    <CmdletObject verb="Initialize" noun="AppSenseDesktopNowInstanceDatabase">
+      <Name>Initialize-AppSenseDesktopNowInstanceDatabase</Name>
+      <GeneralHelp>
+        <Synopsis>Creates or upgrades the database associated with the connected AppSense product instance.</Synopsis>
+        <Description>The Initialize-AppSenseDesktopNowInstanceDatabase cmdlet creates or upgrades the database associated with the connected AppSense product instance.  The product instance must already be connected to before calling this cmdlet.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $true when the database has been initialised successfully and $false if an error occurred whilst initialising.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="ConfigPlainServiceCreds" Params="DatabaseServer DatabaseName DatabaseConnection ConfigurationUser ConfigurationPassword ServiceCredential ConfigurerSqlAuthentication ServiceSqlAuthentication ConfirmConfigurer CreateConfigurer DoNotForce TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ConfigPlainServicePlain" Params="DatabaseServer DatabaseName DatabaseConnection ConfigurationUser ConfigurationPassword ServiceUser ServicePassword ConfigurerSqlAuthentication ServiceSqlAuthentication ConfirmConfigurer CreateConfigurer DoNotForce TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ConfigCredsServiceCreds" Params="DatabaseServer DatabaseName DatabaseConnection ConfigurerCredential ServiceCredential ConfigurerSqlAuthentication ServiceSqlAuthentication ConfirmConfigurer CreateConfigurer DoNotForce TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ConfigCredsServicePlain" Params="DatabaseServer DatabaseName DatabaseConnection ConfigurerCredential ServiceUser ServicePassword ConfigurerSqlAuthentication ServiceSqlAuthentication ConfirmConfigurer CreateConfigurer DoNotForce TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Initialize-AppSenseDesktopNowInstanceDatabase -DatabaseServer &lt;String&gt; -DatabaseName &lt;String&gt; [-DatabaseConnection &lt;String&gt;] -ConfigurationUser &lt;String&gt; -ConfigurationPassword &lt;String&gt; -ServiceCredential &lt;PSCredential&gt; [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-ConfirmConfigurer] [-CreateConfigurer] [-DoNotForce] [-TrackTime]</string>
+        <string>Initialize-AppSenseDesktopNowInstanceDatabase -DatabaseServer &lt;String&gt; -DatabaseName &lt;String&gt; [-DatabaseConnection &lt;String&gt;] -ConfigurationUser &lt;String&gt; -ConfigurationPassword &lt;String&gt; -ServiceUser &lt;String&gt; -ServicePassword &lt;String&gt; [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-ConfirmConfigurer] [-CreateConfigurer] [-DoNotForce] [-TrackTime]</string>
+        <string>Initialize-AppSenseDesktopNowInstanceDatabase -DatabaseServer &lt;String&gt; -DatabaseName &lt;String&gt; [-DatabaseConnection &lt;String&gt;] -ConfigurerCredential &lt;PSCredential&gt; -ServiceCredential &lt;PSCredential&gt; [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-ConfirmConfigurer] [-CreateConfigurer] [-DoNotForce] [-TrackTime]</string>
+        <string>Initialize-AppSenseDesktopNowInstanceDatabase -DatabaseServer &lt;String&gt; -DatabaseName &lt;String&gt; [-DatabaseConnection &lt;String&gt;] -ConfigurerCredential &lt;PSCredential&gt; -ServiceUser &lt;String&gt; -ServicePassword &lt;String&gt; [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-ConfirmConfigurer] [-CreateConfigurer] [-DoNotForce] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>DatabaseServer</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database server to point to.  If the database is to be in a names instance then use the format &lt;servername&gt;\&lt;instancename&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>DatabaseName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database to be created or upgraded.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurationUser</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The username to be used when creating or updating the database.  If a domain account is being used then use the format &lt;domain&gt;\&lt;username&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurationPassword</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Plain text password for the configuration user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServiceCredential</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of service user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurerSqlAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the configuration user is assumed to be a SQL account.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServiceSqlAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the service user is assumed to be a SQL account.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServiceUser</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The username to be used when making connections to the database.  If a domain account is being used then use the format &lt;domain&gt;\&lt;username&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServicePassword</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Plain text password for the service user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurerCredential</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of configuration user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>DoNotForce</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied a prompt will appear if the user is required to acknowledge an upgrade or change to the database.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfirmConfigurer</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the Configuration user is checked to see if it is a valid SQL login that can be used for configuring the required database.
+
+Using this parameter will mean that the SQL Server SMO libraries are available on the installation server.  These are available as standalone packages from the SQL Server Feature Pack.
+
+If you are installing SQL Server Express (available in the AppSense software download) as part of a single server installation then these libraries will be installed as part of that.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>CreateConfigurer</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the Configuration user will be created as a SQL login on the specified server with the required server roles.
+
+Using this parameter will mean that the SQL Server SMO libraries are available on the installation server.  These are available as standalone packages from the SQL Server Feature Pack.
+
+If you are installing SQL Server Express (available in the AppSense software download) as part of a single server installation then these libraries will be installed as part of that.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>DatabaseConnection</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied a friendly name is given to the database connection details that are seen in the SCP.
+This parameter is ignored if not using v10.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Initialize-AppSenseDesktopNowInstanceDatabase -DatabaseServer "TestSQLServer\TestSQLInstance" -DatabaseName "TEST-DATABASE" -ConfigurationUser "TEST\TestConfigUser" -ConfigurationPassword "TestPassword" -ServiceUser "TEST\TestServiceUser" -ServicePassword "TestPassword" -TrackTime -Verbose
+</Cmd>
+          <Description>This example will create/update the database associated with the currently connected product instance whilst displaying its progress.  The credentials in this example are provided in plain text.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>$configCreds = Get-Credential
+$serviceCreds = Get-Credential
+Initialize-AppSenseDesktopNowInstanceDatabase -DatabaseServer "TestSQLServer\TestSQLInstance" -DatabaseName "TEST-DATABASE" -ConfigurerCredential $configCreds -ServiceCredential $serviceCreds -TrackTime -Verbose</Cmd>
+          <Description>This example will create/update the database associated with the currently connected product instance whilst displaying its progress.  The user is prompted to enter credentials that should be used for this cmdlet.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Initialize-AppSenseDesktopNowInstance</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Test-AppSenseDesktopNowInstanceDatabaseUpgrade</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Initialize" noun="AppSenseDesktopNowInstance">
+      <Name>Initialize-AppSenseDesktopNowInstance</Name>
+      <GeneralHelp>
+        <Synopsis>Initialises an instance of an AppSense component completely.</Synopsis>
+        <Description>The Initialize-AppSenseDesktopNowInstance cmdlet initialises an instance of an AppSense component completely.
+This cmdlet acts as a bootstrap to multiple cmdlets and will ensure that: -
+
+* All pre-requisites are installed
+* The product instance is available
+* Create or upgrade the database for the instance
+* Create or update the website for the instance
+* Correct any variances that are detected</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;System.String</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns the id of the instance when it has been initialised successfully and $false if an error occurred.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="ConfigPlainServiceCreds" Params="ProductName WebsiteAuthentication WebsiteName InstanceName WebsitePort DatabaseConnection DatabaseServer DatabaseName ConfigurationUser ConfigurationPassword ServiceCredentials CreateWebsite ConfirmConfigurer CreateConfigurer ConfigurerSqlAuthentication ServiceSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ConfigPlainServicePlain" Params="ProductName WebsiteAuthentication WebsiteName InstanceName WebsitePort DatabaseConnection DatabaseServer DatabaseName ConfigurationUser ConfigurationPassword ServiceUser ServicePassword CreateWebsite ConfirmConfigurer CreateConfigurer ConfigurerSqlAuthentication ServiceSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ConfigCredsServiceCreds" Params="ProductName WebsiteAuthentication WebsiteName InstanceName WebsitePort DatabaseConnection DatabaseServer DatabaseName ConfigurationCredentials ServiceCredentials CreateWebsite ConfirmConfigurer CreateConfigurer ConfigurerSqlAuthentication ServiceSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ConfigCredsServicePlain" Params="ProductName WebsiteAuthentication WebsiteName InstanceName WebsitePort DatabaseConnection DatabaseServer DatabaseName ConfigurationCredentials ServiceUser ServicePassword CreateWebsite ConfirmConfigurer CreateConfigurer ConfigurerSqlAuthentication ServiceSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Initialize-AppSenseDesktopNowInstance -ProductName &lt;Products&gt; [-WebsiteAuthentication &lt;WebsiteAuthenticationType&gt;] [-WebsiteName &lt;String&gt;] [-InstanceName &lt;String&gt;] [-WebsitePort &lt;UInt16&gt;] [-DatabaseConnection &lt;String&gt;] -DatabaseServer &lt;String&gt; -DatabaseName &lt;String&gt; -ConfigurationUser &lt;String&gt; -ConfigurationPassword &lt;String&gt; -ServiceCredentials &lt;PSCredential&gt; [-CreateWebsite] [-ConfirmConfigurer] [-CreateConfigurer] [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-TrackTime]</string>
+        <string>Initialize-AppSenseDesktopNowInstance -ProductName &lt;Products&gt; [-WebsiteAuthentication &lt;WebsiteAuthenticationType&gt;] [-WebsiteName &lt;String&gt;] [-InstanceName &lt;String&gt;] [-WebsitePort &lt;UInt16&gt;] [-DatabaseConnection &lt;String&gt;] -DatabaseServer &lt;String&gt; -DatabaseName &lt;String&gt; -ConfigurationUser &lt;String&gt; -ConfigurationPassword &lt;String&gt; -ServiceUser &lt;String&gt; -ServicePassword &lt;String&gt; [-CreateWebsite] [-ConfirmConfigurer] [-CreateConfigurer] [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-TrackTime]</string>
+        <string>Initialize-AppSenseDesktopNowInstance -ProductName &lt;Products&gt; [-WebsiteAuthentication &lt;WebsiteAuthenticationType&gt;] [-WebsiteName &lt;String&gt;] [-InstanceName &lt;String&gt;] [-WebsitePort &lt;UInt16&gt;] [-DatabaseConnection &lt;String&gt;] -DatabaseServer &lt;String&gt; -DatabaseName &lt;String&gt; -ConfigurationCredentials &lt;PSCredential&gt; -ServiceCredentials &lt;PSCredential&gt; [-CreateWebsite] [-ConfirmConfigurer] [-CreateConfigurer] [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-TrackTime]</string>
+        <string>Initialize-AppSenseDesktopNowInstance -ProductName &lt;Products&gt; [-WebsiteAuthentication &lt;WebsiteAuthenticationType&gt;] [-WebsiteName &lt;String&gt;] [-InstanceName &lt;String&gt;] [-WebsitePort &lt;UInt16&gt;] [-DatabaseConnection &lt;String&gt;] -DatabaseServer &lt;String&gt; -DatabaseName &lt;String&gt; -ConfigurationCredentials &lt;PSCredential&gt; -ServiceUser &lt;String&gt; -ServicePassword &lt;String&gt; [-CreateWebsite] [-ConfirmConfigurer] [-CreateConfigurer] [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="Products" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ProductName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The product that should be initialised for the product instance.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="WebsiteAuthenticationType" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>WebsiteAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The authentication type to be used for the website.  Accepted values are Anonymous, Windows.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>WebsiteName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the website that the application pools should be created in.  If not supplied the Default Web Site is assumed.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>InstanceName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the AppSense component instance that is to be initialised.  If not supplied the default instance is assumed.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="UInt16" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>WebsitePort</Name>
+          <Attributes>
+            <string>System.Management.Automation.ValidateRangeAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The port number that the website should be bound to if it is to be created.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>DatabaseServer</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database server to point to.  If the database is to be in a names instance then use the format &lt;servername&gt;\&lt;instancename&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>DatabaseName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database to be created or upgraded.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurationUser</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The username to be used when creating or updating the database.  If a domain account is being used then use the format &lt;domain&gt;\&lt;username&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurationPassword</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Plain text password for the configuration user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServiceCredentials</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of service user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>CreateWebsite</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the website will be created if it doesn't exist.  When specifying this the WebsitePort parameter should also be specified.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurerSqlAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the configuration user is assumed to be a SQL account.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServiceSqlAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the service user is assumed to be a SQL account.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServiceUser</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The username to be used when making connections to the database.  If a domain account is being used then use the format &lt;domain&gt;\&lt;username&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServicePassword</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Plain text password for the service user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurationCredentials</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of configuration user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfirmConfigurer</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the Configuration user is checked to see if it is a valid SQL login that can be used for configuring the required database.
+
+Using this parameter will mean that the SQL Server SMO libraries are available on the installation server.  These are available as standalone packages from the SQL Server Feature Pack.
+
+If you are installing SQL Server Express (available in the AppSense software download) as part of a single server installation then these libraries will be installed as part of that.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>CreateConfigurer</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the Configuration user will be created as a SQL login on the specified server with the required server roles.
+
+Using this parameter will mean that the SQL Server SMO libraries are available on the installation server.  These are available as standalone packages from the SQL Server Feature Pack.
+
+If you are installing SQL Server Express (available in the AppSense software download) as part of a single server installation then these libraries will be installed as part of that.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>DatabaseConnection</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied a friendly name is given to the database connection details that are seen in the SCP.
+This parameter is ignored if not using v10.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>$configCreds = Get-Credential
+$serviceCreds = Get-Credential
+$dbServer = "TestSQLServer\TestSQLInstance"
+$dbName = "TEST-DATABASE"
+Initialize-AppSenseDesktopNowInstance -ProductName ManagementCentre -DatabaseServer $dbServer -DatabaseName $dbName -ConfigurationCredentials $configCreds -ServiceCredentials $serviceCreds -TrackTime -Verbose</Cmd>
+          <Description>This example will prompt the user for credentials for the configuration and service accounts.  It will then initialise the default instance of the AMC whilst displaying progress.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>$dbServer = "TestSQLServer\TestSQLInstance"
+$dbName = "TEST-DATABASE"
+Initialize-AppSenseDesktopNowInstance -ProductName ManagementCentre -InstanceName "Test" -WebsitePort 81 -DatabaseServer $dbServer -DatabaseName $dbName -ConfigurationUser "TEST\TestConfigUser" -ConfigurationPassword "TestPassword" -ServiceUser "TEST\TestServiceUser" -ServicePassword "TestPassword" -CreateWebsite -TrackTime -Verbose</Cmd>
+          <Description>This example will use the provided plain text credentials for the configuration and service accounts.  It will then initialise the "Test" instance of the AMC using a website of the same name as the instance.  If this site doesn't exist then it will be created and bound to port 81.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 3</Name>
+          <Cmd>$dbServer = "TestSQLServer\TestSQLInstance"
+$dbName = "TEST-DATABASE"
+Initialize-AppSenseDesktopNowInstance -ProductName ManagementCentre -InstanceName "Test" -WebsiteName "TestWebsite" -WebsitePort 81 -DatabaseServer $dbServer -DatabaseName $dbName -ConfigurationUser "TEST\TestConfigUser" -ConfigurationPassword "TestPassword" -ServiceUser "TEST\TestServiceUser" -ServicePassword "TestPassword" -CreateWebsite -TrackTime -Verbose</Cmd>
+          <Description>This example will use the provided plain text credentials for the configuration and service accounts.  It will then initialise the "Test" instance of the AMC using a website called "TestWebsite".  If this site doesn't exist then it will be created and bound to port 81.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 4</Name>
+          <Cmd>$dbServer = "TestSQLServer\TestSQLInstance"
+$dbName = "TEST-DATABASE"
+Initialize-AppSenseDesktopNowInstance -ProductName BrowserInterfaceOnly -DatabaseServer $dbServer -DatabaseName $dbName -ConfigurationUser "TEST\TestConfigUser" -ConfigurationPassword "TestPassword" -ServiceUser "TEST\TestConfigUser" -ServicePassword "TestPassword" -TrackTime -Verbose</Cmd>
+          <Description>This example will use the provided plain text credentials for the configuration and service accounts.  It will then initialise the default instance of the EMBI.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Initialize-AppSenseDesktopNowInstanceDatabase</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Initialize-AppSenseDesktopNowInstance</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Remove" noun="AppSenseDesktopNowInstanceTransferKey">
+      <Name>Remove-AppSenseDesktopNowInstanceTransferKey</Name>
+      <GeneralHelp>
+        <Synopsis>Removes the transfer key from the database for the currently connected AMC instance.</Synopsis>
+        <Description>The Remove-AppSenseDesktopNowInstanceTransferKey cmdlet removes the transfer key from the database for the currently connected AMC instance.
+The transfer key should be removed when all servers have the correct encryption key.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $true when the transfer key is removed successfully and $false if an error occurred.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="DatabaseServer DatabaseName ConfigurerCredential ConfigurerSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Remove-AppSenseDesktopNowInstanceTransferKey [[-DatabaseServer] &lt;String&gt;] [[-DatabaseName] &lt;String&gt;] [[-ConfigurerCredential] &lt;PSCredential&gt;] [-ConfigurerSqlAuthentication] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>DatabaseServer</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database server to point to.  If the database is to be in a names instance then use the format &lt;servername&gt;\&lt;instancename&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>DatabaseName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database to be created or upgraded.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="2" globbing="false">
+          <Name>ConfigurerCredential</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of configuration user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurerSqlAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the configuration user is assumed to be a SQL account.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>$configCreds = Get-Credential
+Remove-AppSenseDesktopNowInstanceTransferKey -ConfigurerCredential $configCreds -TrackTime -Verbose</Cmd>
+          <Description>This example prompts the user for credentials and then uses those to remove the transfer key from the database for the currently connected AMC instance.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Set-AppSenseDesktopNowInstanceTransferKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Sync-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Test-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Test-AppSenseDesktopNowInstanceTransferKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Set-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Repair" noun="AppSenseDesktopNowInstanceVariance">
+      <Name>Repair-AppSenseDesktopNowInstanceVariance</Name>
+      <GeneralHelp>
+        <Synopsis>Repairs any variances that are found for the connected AppSense product instance.</Synopsis>
+        <Description>The Repair-AppSenseDesktopNowInstanceVariance cmdlet repairs any variances that are found for the connected AppSense product instance.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $true when the variances are repaired and $false if an error occurred.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Repair-AppSenseDesktopNowInstanceVariance [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Repair-AppSenseDesktopNowInstanceVariance -DatabaseServer "TestSQLServer\TestSQLInstance" -DatabaseName "TEST-DATABASE" -ConfigurationUser "TEST\TestConfigUser" -ConfigurationPassword "TestPassword" -TrackTime -Verbose</Cmd>
+          <Description>This example repairs any variances for the connected AppSense product instance whilst displaying progress.  Plain text credentials are used whilst running the cmdlet.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>$configCreds = Get-Credential
+Repair-AppSenseDesktopNowInstanceVariance -DatabaseServer "TestSQLServer\TestSQLInstance" -DatabaseName "TEST-DATABASE" -ConfigurerCredential $configCreds -TrackTime -Verbose</Cmd>
+          <Description>This example repairs any variances for the connected AppSense product instance whilst displaying progress.  The user is prompted for credentials to be used whilst running the cmdlet.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Test-AppSenseDesktopNowInstanceVariance</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Set" noun="AppSenseDesktopNowInstanceEncryptionKey">
+      <Name>Set-AppSenseDesktopNowInstanceEncryptionKey</Name>
+      <GeneralHelp>
+        <Synopsis>Generates the encryption key that is used by the AMC when storing credentials in the database.</Synopsis>
+        <Description>The Set-AppSenseDesktopNowInstanceEncryptionKey cmdlet generates the encryption key that is used by the AMC when storing credentials in the database.
+This encryption key must be the same for all AMC servers in the estate that are connected to this database.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $true when the encryption key is set successfully and $false if an error occurred.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="DatabaseServer DatabaseName ConfigurerCredential ConfigurerSqlAuthentication DoNotForce TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Set-AppSenseDesktopNowInstanceEncryptionKey [[-DatabaseServer] &lt;String&gt;] [[-DatabaseName] &lt;String&gt;] [[-ConfigurerCredential] &lt;PSCredential&gt;] [-ConfigurerSqlAuthentication] [-DoNotForce] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>DatabaseServer</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database server to point to.  If the database is to be in a names instance then use the format &lt;servername&gt;\&lt;instancename&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>DatabaseName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database to be created or upgraded.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="2" globbing="false">
+          <Name>ConfigurerCredential</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of configuration user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurerSqlAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the configuration user is assumed to be a SQL account.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>DoNotForce</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided prompts are displayed to ensure that you do want to retrieve the encryption key onto this server.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>$configCreds = Get-Credential
+Set-AppSenseDesktopNowInstanceEncryptionKey -ConfigurerCredential $configCreds -TrackTime -Verbose</Cmd>
+          <Description>This example prompts the user for credentials and then uses those to store an encryption key in the database for the connected AMC instance.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Set-AppSenseDesktopNowInstanceTransferKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Sync-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Test-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Test-AppSenseDesktopNowInstanceTransferKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Remove-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Set" noun="AppSenseDesktopNowInstanceTransferKey">
+      <Name>Set-AppSenseDesktopNowInstanceTransferKey</Name>
+      <GeneralHelp>
+        <Synopsis>Stores the specified transfer key into the database of the currently connected AMC instance.</Synopsis>
+        <Description>The Set-AppSenseDesktopNowInstanceTransferKey cmdlet stores the specified transfer key into the database of the currently connected AMC instance.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $true when the transfer key is set successfully and $false if an error occurred.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="Password DatabaseServer DatabaseName ConfigurerCredential ConfigurerSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Set-AppSenseDesktopNowInstanceTransferKey [-Password] &lt;String&gt; [[-DatabaseServer] &lt;String&gt;] [[-DatabaseName] &lt;String&gt;] [[-ConfigurerCredential] &lt;PSCredential&gt;] [-ConfigurerSqlAuthentication] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>Password</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Used to read the encrypted key from the database. You will need to use the same password that was used in the Set-AppSenseDesktopNowInstanceTransferKey cmdlet.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>DatabaseServer</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database server to point to.  If the database is to be in a names instance then use the format &lt;servername&gt;\&lt;instancename&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="2" globbing="false">
+          <Name>DatabaseName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database to be created or upgraded.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="3" globbing="false">
+          <Name>ConfigurerCredential</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of configuration user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurerSqlAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the configuration user is assumed to be a SQL account.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>$configCreds = Get-Credential
+Set-AppSenseDesktopNowInstanceTransferKey -ConfigurerCredential $configCreds -Password "TransferKey" -TrackTime -Verbose</Cmd>
+          <Description>This example prompts the user for credentials and then uses those to store a transfer key in the database for the connected AMC instance.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Test-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Test-AppSenseDesktopNowInstanceTransferKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Sync-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Set-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Remove-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Sync" noun="AppSenseDesktopNowInstanceEncryptionKey">
+      <Name>Sync-AppSenseDesktopNowInstanceEncryptionKey</Name>
+      <GeneralHelp>
+        <Synopsis>Retrieves a stored encryption key from the AMC database and uses it on the local server.</Synopsis>
+        <Description>The Sync-AppSenseDesktopNowInstanceEncryptionKey cmdlet retrieves a stored encryption key from the AMC database and uses it on the local server.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $true when the encryption key is retrieved and $false if an error occurred.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="Password DatabaseServer DatabaseName ConfigurerCredential ConfigurerSqlAuthentication DoNotForce TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Sync-AppSenseDesktopNowInstanceEncryptionKey [-Password] &lt;String&gt; [[-DatabaseServer] &lt;String&gt;] [[-DatabaseName] &lt;String&gt;] [[-ConfigurerCredential] &lt;PSCredential&gt;] [-ConfigurerSqlAuthentication] [-DoNotForce] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>Password</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Used to read the encrypted key from the database. You will need to use the same password that was used in the Set-AppSenseDesktopNowInstanceTransferKey cmdlet.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>DatabaseServer</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database server to point to.  If the database is to be in a names instance then use the format &lt;servername&gt;\&lt;instancename&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="2" globbing="false">
+          <Name>DatabaseName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database to be created or upgraded.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="3" globbing="false">
+          <Name>ConfigurerCredential</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of configuration user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurerSqlAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the configuration user is assumed to be a SQL account.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>DoNotForce</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided prompts are displayed to ensure that you do want to retrieve the encryption key onto this server.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>$configCreds = Get-Credential
+Sync-AppSenseDesktopNowInstanceEncryptionKey -ConfigurerCredential $configCreds -Password "TransferKey" -TrackTime -Verbose</Cmd>
+          <Description>This example prompts the user for credentials and then uses those to connect to the database of the AMC instance and retrieve the encryption key using the specified password.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Set-AppSenseDesktopNowInstanceTransferKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Set-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Test-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Test-AppSenseDesktopNowInstanceTransferKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Remove-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Test" noun="AppSenseDesktopNowInstanceEncryptionKey">
+      <Name>Test-AppSenseDesktopNowInstanceEncryptionKey</Name>
+      <GeneralHelp>
+        <Synopsis>Determines whether an encryption key is set and if it is valid.</Synopsis>
+        <Description>The Test-AppSenseDesktopNowInstanceEncryptionKey cmdlet determines whether an encryption key is set and if it is valid.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $true when there is an encryption key set and $false if an error occurred or no encryption key is set or it is invalid.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="DatabaseServer DatabaseName ConfigurerCredential ConfigurerSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Test-AppSenseDesktopNowInstanceEncryptionKey [[-DatabaseServer] &lt;String&gt;] [[-DatabaseName] &lt;String&gt;] [[-ConfigurerCredential] &lt;PSCredential&gt;] [-ConfigurerSqlAuthentication] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>DatabaseServer</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database server to point to.  If the database is to be in a names instance then use the format &lt;servername&gt;\&lt;instancename&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>DatabaseName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database to be created or upgraded.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="2" globbing="false">
+          <Name>ConfigurerCredential</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of configuration user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurerSqlAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the configuration user is assumed to be a SQL account.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>$configCreds = Get-Credential
+Test-AppSenseDesktopNowInstanceEncryptionKey -ConfigurerCredential $configCreds -TrackTime -Verbose</Cmd>
+          <Description>This example prompts the user for credentials and then uses those to connect to the database of the AMC instance to determine if an encryption key is available and valid.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Sync-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Set-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Set-AppSenseDesktopNowInstanceTransferKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Test-AppSenseDesktopNowInstanceTransferKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Remove-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Test" noun="AppSenseDesktopNowInstanceTransferKey">
+      <Name>Test-AppSenseDesktopNowInstanceTransferKey</Name>
+      <GeneralHelp>
+        <Synopsis>Determines whether a transfer key is present in the database or not.</Synopsis>
+        <Description>The Test-AppSenseDesktopNowInstanceTransferKey cmdlet determines whether or not there is a transfer key present in the database.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $true when there is a transfer key set and $false if an error occurred or no transfer key is set.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="DatabaseServer DatabaseName ConfigurerCredential ConfigurerSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Test-AppSenseDesktopNowInstanceTransferKey [[-DatabaseServer] &lt;String&gt;] [[-DatabaseName] &lt;String&gt;] [[-ConfigurerCredential] &lt;PSCredential&gt;] [-ConfigurerSqlAuthentication] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>DatabaseServer</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database server to point to.  If the database is to be in a names instance then use the format &lt;servername&gt;\&lt;instancename&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>DatabaseName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database to be created or upgraded.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="2" globbing="false">
+          <Name>ConfigurerCredential</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of configuration user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurerSqlAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the configuration user is assumed to be a SQL account.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>$configCreds = Get-Credential
+Test-AppSenseDesktopNowInstanceTransferKey -ConfigurerCredential $configCreds -TrackTime -Verbose</Cmd>
+          <Description>This example prompts the user for credentials and then uses those to connect to the database of the AMC instance to determine if a transfer key is available.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Set-AppSenseDesktopNowInstanceTransferKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Set-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Test-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Sync-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Remove-AppSenseDesktopNowInstanceEncryptionKey</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Test" noun="AppSenseDesktopNowInstanceDatabaseUpgrade">
+      <Name>Test-AppSenseDesktopNowInstanceDatabaseUpgrade</Name>
+      <GeneralHelp>
+        <Synopsis>Determines whether or not the database for the currently connected product instance needs creating or upgrading.</Synopsis>
+        <Description>The Test-AppSenseDesktopNowInstanceDatabaseUpgrade cmdlet determines whether or not the database for the currently connected product instance needs creating or upgrading.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $true when the database needs creating or upgrading and $false if an error occurred or no upgrade is required.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="ConfigPlainServiceCreds" Params="DatabaseServer DatabaseName ConfigurationUser ConfigurationPassword ServiceCredential ConfigurerSqlAuthentication ServiceSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ConfigPlainServicePlain" Params="DatabaseServer DatabaseName ConfigurationUser ConfigurationPassword ServiceUser ServicePassword ConfigurerSqlAuthentication ServiceSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ConfigCredsServiceCreds" Params="DatabaseServer DatabaseName ConfigurerCredential ServiceCredential ConfigurerSqlAuthentication ServiceSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ConfigCredsServicePlain" Params="DatabaseServer DatabaseName ConfigurerCredential ServiceUser ServicePassword ConfigurerSqlAuthentication ServiceSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Test-AppSenseDesktopNowInstanceDatabaseUpgrade [-DatabaseServer &lt;String&gt;] [-DatabaseName &lt;String&gt;] -ConfigurationUser &lt;String&gt; -ConfigurationPassword &lt;String&gt; -ServiceCredential &lt;PSCredential&gt; [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-TrackTime]</string>
+        <string>Test-AppSenseDesktopNowInstanceDatabaseUpgrade [-DatabaseServer &lt;String&gt;] [-DatabaseName &lt;String&gt;] -ConfigurationUser &lt;String&gt; -ConfigurationPassword &lt;String&gt; -ServiceUser &lt;String&gt; -ServicePassword &lt;String&gt; [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-TrackTime]</string>
+        <string>Test-AppSenseDesktopNowInstanceDatabaseUpgrade [-DatabaseServer &lt;String&gt;] [-DatabaseName &lt;String&gt;] -ConfigurerCredential &lt;PSCredential&gt; -ServiceCredential &lt;PSCredential&gt; [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-TrackTime]</string>
+        <string>Test-AppSenseDesktopNowInstanceDatabaseUpgrade [-DatabaseServer &lt;String&gt;] [-DatabaseName &lt;String&gt;] -ConfigurerCredential &lt;PSCredential&gt; -ServiceUser &lt;String&gt; -ServicePassword &lt;String&gt; [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>DatabaseServer</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database server to point to.  If the database is to be in a names instance then use the format &lt;servername&gt;\&lt;instancename&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>DatabaseName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database to be created or upgraded.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurationUser</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The username to be used when creating or updating the database.  If a domain account is being used then use the format &lt;domain&gt;\&lt;username&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurationPassword</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Plain text password for the configuration user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServiceCredential</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of service user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurerSqlAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the configuration user is assumed to be a SQL account.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServiceSqlAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the service user is assumed to be a SQL account.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServiceUser</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The username to be used when making connections to the database.  If a domain account is being used then use the format &lt;domain&gt;\&lt;username&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServicePassword</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Plain text password for the service user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurerCredential</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of configuration user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Test-AppSenseDesktopNowInstanceDatabaseUpgrade -DatabaseServer "TestSQLServer\TestSQLInstance" -DatabaseName "TEST-DATABASE" -ConfigurationUser "TEST\TestConfigUser" -ConfigurationPassword "TestPassword" -ServiceUser "TEST\TestServiceUser" -ServicePassword "TestPassword" -TrackTime -Verbose</Cmd>
+          <Description>This example checks to see whether or not the database needs creating or upgrading for the currently connected product instance.  Plain text credentials are used in this scenario and progress is displayed whilst the cmdlet is running.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>$configCreds = Get-Credential
+$serviceCreds = Get-Credential
+Test-AppSenseDesktopNowInstanceDatabaseUpgrade -DatabaseServer "TestSQLServer\TestSQLInstance" -DatabaseName "TEST-DATABASE" -ConfigurerCredential $configCreds -ServiceCredential $serviceCreds -TrackTime -Verbose</Cmd>
+          <Description>This example checks to see whether or not the database needs creating or upgrading for the currently connected product instance.  the user is prompted for credentials to be used in this scenario and progress is displayed whilst the cmdlet is running.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Initialize-AppSenseDesktopNowInstanceDatabase</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Test" noun="AppSenseDesktopNowInstanceVariance">
+      <Name>Test-AppSenseDesktopNowInstanceVariance</Name>
+      <GeneralHelp>
+        <Synopsis>Determines if there are any variances that would have been reported when running the SCU.</Synopsis>
+        <Description>The Test-AppSenseDesktopNowInstanceVariance cmdlet determines if there are any variances that would have been reported when running the SCU.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $true when there are variances found and $false if an error occurred or no variances were found.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="UseCurrent" Params="ConfigurerSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ConfigPlain" Params="ConfigurationUser ConfigurationPassword ConfigurerSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ConfigCreds" Params="ConfigurationCredentials ConfigurerSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Test-AppSenseDesktopNowInstanceVariance [-ConfigurerSqlAuthentication] [-TrackTime]</string>
+        <string>Test-AppSenseDesktopNowInstanceVariance -ConfigurationUser &lt;String&gt; -ConfigurationPassword &lt;String&gt; [-ConfigurerSqlAuthentication] [-TrackTime]</string>
+        <string>Test-AppSenseDesktopNowInstanceVariance -ConfigurationCredentials &lt;PSCredential&gt; [-ConfigurerSqlAuthentication] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurationUser</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The username to be used when creating or updating the database.  If a domain account is being used then use the format &lt;domain&gt;\&lt;username&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurationPassword</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Plain text password for the configuration user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurerSqlAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the configuration user is assumed to be a SQL account.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurationCredentials</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of configuration user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Test-AppSenseDesktopNowInstanceVariance -DatabaseServer "TestSQLServer\TestSQLInstance" -DatabaseName "TEST-DATABASE" -ConfigurationUser "TEST\TestConfigUser" -ConfigurationPassword "TestPassword" -TrackTime -Verbose</Cmd>
+          <Description>This example checks to see if there are any variances for the connected AppSense product instance whilst displaying progress.  Plain text credentials are used whilst running the cmdlet.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>$configCreds = Get-Credential
+Test-AppSenseDesktopNowInstanceVariance -DatabaseServer "TestSQLServer\TestSQLInstance" -DatabaseName "TEST-DATABASE" -ConfigurerCredential $configCreds -TrackTime -Verbose</Cmd>
+          <Description>This example checks to see if there are any variances for the connected AppSense product instance whilst displaying progress.  The user is prompted for credentials to be used whilst running the cmdlet.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Repair-AppSenseDesktopNowInstanceVariance</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Connect" noun="AppSenseDesktopNowInstance">
+      <Name>Connect-AppSenseDesktopNowInstance</Name>
+      <GeneralHelp>
+        <Synopsis>Connects to an existing product instance.</Synopsis>
+        <Description>The Connect-AppSenseDesktopNowInstance cmdlet connects to an existing product instance.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $true when the connection is made and $false if an error occurred.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="ProductName InstanceName TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Connect-AppSenseDesktopNowInstance [-ProductName] &lt;Products&gt; [[-InstanceName] &lt;String&gt;] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="Products" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>ProductName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The product that should be connected to.  Accepted values are ManagementCentre, PersonalizationServerOnly, BrowserInterfaceOnly, PersonalizationAndBrowserInterface.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>InstanceName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the AppSense component instance that is to be connected to.  If not supplied the default instance is assumed.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Connect-AppSenseDesktopNowInstance -ProductName PersonalizationAndBrowserInterface -TrackTime -Verbose</Cmd>
+          <Description>This example connects to the Personalization Server default instance.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Connect-AppSenseDesktopNowInstance -ProductName ManagementCentre -InstanceName "TestInstance" -TrackTime -Verbose</Cmd>
+          <Description>This example connects to the "TestInstance" Management Server instance.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Initialize" noun="AppSenseDesktopNowInstanceWebsite">
+      <Name>Initialize-AppSenseDesktopNowInstanceWebsite</Name>
+      <GeneralHelp>
+        <Synopsis>Initialises the web site for the currently connected product instance.</Synopsis>
+        <Description>The Initialize-AppSenseDesktopNowInstanceWebsite cmdlet initialises the web site for the currently connected product instance.
+This cmdlet can create the web site if it doesn't exist.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $true when the web site has been initialised successfully and $false if an error occurred.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="ConfigPlainServiceCreds" Params="ProductName WebsiteAuthentication WebsiteName InstanceName WebsitePort DatabaseServer DatabaseName ConfigurationUser ConfigurationPassword ServiceCredentials CreateWebsite ConfigurerSqlAuthentication ServiceSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ConfigPlainServicePlain" Params="ProductName WebsiteAuthentication WebsiteName InstanceName WebsitePort DatabaseServer DatabaseName ConfigurationUser ConfigurationPassword ServiceUser ServicePassword CreateWebsite ConfigurerSqlAuthentication ServiceSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ConfigCredsServiceCreds" Params="ProductName WebsiteAuthentication WebsiteName InstanceName WebsitePort DatabaseServer DatabaseName ConfigurationCredentials ServiceCredentials CreateWebsite ConfigurerSqlAuthentication ServiceSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ConfigCredsServicePlain" Params="ProductName WebsiteAuthentication WebsiteName InstanceName WebsitePort DatabaseServer DatabaseName ConfigurationCredentials ServiceUser ServicePassword CreateWebsite ConfigurerSqlAuthentication ServiceSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Initialize-AppSenseDesktopNowInstanceWebsite -ProductName &lt;Products&gt; [-WebsiteAuthentication &lt;WebsiteAuthenticationType&gt;] [-WebsiteName &lt;String&gt;] [-InstanceName &lt;String&gt;] [-WebsitePort &lt;UInt16&gt;] -DatabaseServer &lt;String&gt; -DatabaseName &lt;String&gt; -ConfigurationUser &lt;String&gt; -ConfigurationPassword &lt;String&gt; -ServiceCredentials &lt;PSCredential&gt; [-CreateWebsite] [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-TrackTime]</string>
+        <string>Initialize-AppSenseDesktopNowInstanceWebsite -ProductName &lt;Products&gt; [-WebsiteAuthentication &lt;WebsiteAuthenticationType&gt;] [-WebsiteName &lt;String&gt;] [-InstanceName &lt;String&gt;] [-WebsitePort &lt;UInt16&gt;] -DatabaseServer &lt;String&gt; -DatabaseName &lt;String&gt; -ConfigurationUser &lt;String&gt; -ConfigurationPassword &lt;String&gt; -ServiceUser &lt;String&gt; -ServicePassword &lt;String&gt; [-CreateWebsite] [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-TrackTime]</string>
+        <string>Initialize-AppSenseDesktopNowInstanceWebsite -ProductName &lt;Products&gt; [-WebsiteAuthentication &lt;WebsiteAuthenticationType&gt;] [-WebsiteName &lt;String&gt;] [-InstanceName &lt;String&gt;] [-WebsitePort &lt;UInt16&gt;] -DatabaseServer &lt;String&gt; -DatabaseName &lt;String&gt; -ConfigurationCredentials &lt;PSCredential&gt; -ServiceCredentials &lt;PSCredential&gt; [-CreateWebsite] [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-TrackTime]</string>
+        <string>Initialize-AppSenseDesktopNowInstanceWebsite -ProductName &lt;Products&gt; [-WebsiteAuthentication &lt;WebsiteAuthenticationType&gt;] [-WebsiteName &lt;String&gt;] [-InstanceName &lt;String&gt;] [-WebsitePort &lt;UInt16&gt;] -DatabaseServer &lt;String&gt; -DatabaseName &lt;String&gt; -ConfigurationCredentials &lt;PSCredential&gt; -ServiceUser &lt;String&gt; -ServicePassword &lt;String&gt; [-CreateWebsite] [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="Products" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ProductName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The product that should be initialised for the product instance.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="WebsiteAuthenticationType" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>WebsiteAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The authentication type to be used for the website.  Accepted values are Anonymous, Windows.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>WebsiteName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the website that the application pools should be created in.  If not supplied the Default Web Site is assumed.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>InstanceName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the AppSense component instance that is to be initialised.  If not supplied the default instance is assumed.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="UInt16" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>WebsitePort</Name>
+          <Attributes>
+            <string>System.Management.Automation.ValidateRangeAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The port number that the website should be bound to if it is to be created.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>DatabaseServer</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database server to point to.  If the database is to be in a names instance then use the format &lt;servername&gt;\&lt;instancename&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>DatabaseName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database to be created or upgraded.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurationUser</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The username to be used when creating or updating the database.  If a domain account is being used then use the format &lt;domain&gt;\&lt;username&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurationPassword</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Plain text password for the configuration user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServiceCredentials</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of service user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>CreateWebsite</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the website will be created if it doesn't exist.  When specifying this the WebsitePort parameter should also be specified.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurerSqlAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the configuration user is assumed to be a SQL account.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServiceSqlAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the service user is assumed to be a SQL account.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServiceUser</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The username to be used when making connections to the database.  If a domain account is being used then use the format &lt;domain&gt;\&lt;username&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServicePassword</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Plain text password for the service user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurationCredentials</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of configuration user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>$configCreds = Get-Credential
+$serviceCreds = Get-Credential
+$dbServer = "TEST-SERVER\TEST-INSTANCE"
+$dbName = "TEST-DATABASE"
+Initialize-AppSenseDesktopNowInstanceWebsite -ProductName ManagementCentre -DatabaseServer $dbServer -DatabaseName $dbName -ConfigurationCredentials $configCreds -ServiceCredentials $serviceCreds -TrackTime -Verbose
+</Cmd>
+          <Description>This example will initialise the web site for the default instance of the Management Server.  The site will be initialise in the "Default Web Site".</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Initialize-AppSenseDesktopNowInstanceDatabase</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Invoke" noun="AppSenseDesktopNowInstanceNativeCommand">
+      <Name>Invoke-AppSenseDesktopNowInstanceNativeCommand</Name>
+      <GeneralHelp>
+        <Synopsis>Allows calling cmdlets that have not been implemented as yet or that need to be called against the currently connected product instance when using the module.</Synopsis>
+        <Description>The Invoke-AppSenseDesktopNowInstanceNativeCommand cmdlet allows calling cmdlets that have not been implemented as yet or that need to be called against the currently connected product instance when using the module.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>The return type is dependant upon the value supplied to the FunctionName parameter.</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns the output from the specified function when successful and $false if an error occurred.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="FunctionName ArgList TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Invoke-AppSenseDesktopNowInstanceNativeCommand [-FunctionName] &lt;String&gt; [[-ArgList] &lt;Hashtable&gt;] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>FunctionName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the cmdlet that is to be executed.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Hashtable" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>ArgList</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The arguments that are to be passed to the cmdlet specified in the FunctionName parameter.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Invoke-AppSenseDesktopNowInstanceNativeCommand -FunctionName "Export-ApsDatabaseScript" -ArgList @{'ScriptType'='CreateDatabase, CreateSchema, CreateLogins'; 'Path'='C:\ExportScripts'} -TrackTime -Verbose</Cmd>
+          <Description>This example will call the "Export-ApsDatabaseScript" cmdlet for the currently connected instance and export the specified script types to "C:\ExportScripts".</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Invoke-AppSenseDesktopNowInstanceNativeCommand -FunctionName "Get-ApsCurrentInstance" -TrackTime -Verbose</Cmd>
+          <Description>This example will execute the "Get-ApsCurrentInstance" against the currently connected product instance.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Update" noun="AppSenseDesktopNowInstanceDatabase">
+      <Name>Update-AppSenseDesktopNowInstanceDatabase</Name>
+      <GeneralHelp>
+        <Synopsis>Updates the database for the currently connected product instance.</Synopsis>
+        <Description>The Update-AppSenseDesktopNowInstanceDatabase cmdlet updates the database for the currently connected product instance.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $true when the update is completed successfully and $false if an error occurred.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="ConfigPlainServiceCreds" Params="DatabaseServer DatabaseName ConfigurationUser ConfigurationPassword ServiceCredential ConfigurerSqlAuthentication ServiceSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ConfigPlainServicePlain" Params="DatabaseServer DatabaseName ConfigurationUser ConfigurationPassword ServiceUser ServicePassword ConfigurerSqlAuthentication ServiceSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ConfigCredsServiceCreds" Params="DatabaseServer DatabaseName ConfigurerCredential ServiceCredential ConfigurerSqlAuthentication ServiceSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ConfigCredsServicePlain" Params="DatabaseServer DatabaseName ConfigurerCredential ServiceUser ServicePassword ConfigurerSqlAuthentication ServiceSqlAuthentication TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Update-AppSenseDesktopNowInstanceDatabase -DatabaseServer &lt;String&gt; -DatabaseName &lt;String&gt; -ConfigurationUser &lt;String&gt; -ConfigurationPassword &lt;String&gt; -ServiceCredential &lt;PSCredential&gt; [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-TrackTime]</string>
+        <string>Update-AppSenseDesktopNowInstanceDatabase -DatabaseServer &lt;String&gt; -DatabaseName &lt;String&gt; -ConfigurationUser &lt;String&gt; -ConfigurationPassword &lt;String&gt; -ServiceUser &lt;String&gt; -ServicePassword &lt;String&gt; [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-TrackTime]</string>
+        <string>Update-AppSenseDesktopNowInstanceDatabase -DatabaseServer &lt;String&gt; -DatabaseName &lt;String&gt; -ConfigurerCredential &lt;PSCredential&gt; -ServiceCredential &lt;PSCredential&gt; [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-TrackTime]</string>
+        <string>Update-AppSenseDesktopNowInstanceDatabase -DatabaseServer &lt;String&gt; -DatabaseName &lt;String&gt; -ConfigurerCredential &lt;PSCredential&gt; -ServiceUser &lt;String&gt; -ServicePassword &lt;String&gt; [-ConfigurerSqlAuthentication] [-ServiceSqlAuthentication] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>DatabaseServer</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database server to point to.  If the database is to be in a names instance then use the format &lt;servername&gt;\&lt;instancename&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>DatabaseName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the database to be created or upgraded.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurationUser</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The username to be used when creating or updating the database.  If a domain account is being used then use the format &lt;domain&gt;\&lt;username&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurationPassword</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Plain text password for the configuration user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServiceCredential</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of service user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurerSqlAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the configuration user is assumed to be a SQL account.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServiceSqlAuthentication</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the service user is assumed to be a SQL account.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServiceUser</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The username to be used when making connections to the database.  If a domain account is being used then use the format &lt;domain&gt;\&lt;username&gt;.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServicePassword</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Plain text password for the service user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ConfigurerCredential</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of configuration user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>$configCreds = Get-Credential
+$serviceCreds = Get-Credential
+$dbServer = "TEST-SERVER\TEST-INSTANCE"
+$dbName = "TEST-DATABASE"
+$ApsDatabaseArgs = @{"DatabaseServer"=$dbServer; "DatabaseName"=$dbName; "ConfigurerCredential"=$configCreds; "ServiceCredential"=$serviceCreds; "TrackTime"=$true; "Verbose"=$true}
+Update-AppSenseDesktopNowInstanceDatabase @ApsDatabaseArgs</Cmd>
+          <Description>This example uses splatting to update the database for the currently connected product instance.  It will prompt for the credentials to use.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Get" noun="AppSenseDesktopNowInstanceInstallPath">
+      <Name>Get-AppSenseDesktopNowInstanceInstallPath</Name>
+      <GeneralHelp>
+        <Synopsis>Retrieve the installation path of the given AppSense product instance.</Synopsis>
+        <Description>The Get-AppSenseDesktopNowInstanceInstallPath cmdlet retrieves the installation path of the given AppSense product instance.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;System.String</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $false if an error occurred.  If $false is returned check the $error variable for details.;If successful the installation path is returned.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="ProductName InstanceName TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Get-AppSenseDesktopNowInstanceInstallPath [-ProductName] &lt;Products&gt; [[-InstanceName] &lt;String&gt;] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="Products" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>ProductName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The product that should be initialised for the product instance.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>InstanceName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the AppSense component instance that is to be queried.  If not supplied the default instance is assumed.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Get-AppSenseDesktopNowInstanceInstallPath -ProductName ManagementCentre -TrackTime -Verbose</Cmd>
+          <Description>This example retrieves the installation path of the AppSense Management Server default instance.</Description>
+          <Output>C:\Program Files\AppSense\Management Center\Server\Bin</Output>
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Get-AppSenseDesktopNowInstanceInstallPath -ProductName ManagementCentre -InstanceName "Test" -TrackTime -Verbose</Cmd>
+          <Description>This example retrieves the installation path of the "Test" instance of AppSense Management Server.</Description>
+          <Output>C:\Program Files\AppSense\Management Center\Server (Test)\Bin</Output>
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Set" noun="AppSenseDesktopNowLogPath">
+      <Name>Set-AppSenseDesktopNowLogPath</Name>
+      <GeneralHelp>
+        <Synopsis />
+        <Description />
+        <Notes />
+        <InputType />
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType />
+        <ReturnUrl />
+        <ReturnTypeDescription />
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="Path TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Set-AppSenseDesktopNowLogPath [-Path] &lt;String&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>Path</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description />
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description />
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples />
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Get" noun="AppSenseDesktopNowInstanceDetails">
+      <Name>Get-AppSenseDesktopNowInstanceDetails</Name>
+      <GeneralHelp>
+        <Synopsis>Retrieves extended details about the given product instance.</Synopsis>
+        <Description>The Get-AppSenseDesktopNowInstanceDetails cmdlet retrieves extended details about the given product instance.
+This cmdlet is only available in v10 and above.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;AppSense.ServerConfiguration.PowerShell.Model.ApsServerDetails</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $false if an error occurred.  If $false is returned check the $error variable for details.;The details of the specified instance as per the API documentation.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="ProductName InstanceName TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Get-AppSenseDesktopNowInstanceDetails [-ProductName] &lt;Products&gt; [[-InstanceName] &lt;String&gt;] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="Products" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>ProductName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The product to retrieve the instance details for.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>InstanceName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the instance to retrieve details for.  If this is not provided the default instance is assumed.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Get-AppSenseDesktopNowInstanceDetails -ProductName ManagementCenter -TrackTime -Verbose</Cmd>
+          <Description>This example retrieves the details for the default instance of the Management Centre.</Description>
+          <Output>WebSite                  : Management
+HostName                 :
+HostPort                 : 80
+LocalPort                : 7751
+AuthTypes                : {Windows}
+SupportedAuthTypes       : {Anonymous, Windows}
+DatabaseConnection       : AMC DB Connection
+DatabaseName             : AMS-MODULE-DEFAULT
+DatabaseInstance         : DESKTOPNOW\MySQLInstance
+Status                   : Started
+Logging                  : Disabled
+Variances                : {}
+BindingInfo              : {AppSense.ServerConfiguration.PowerShell.Model.ApsServerBindingDetails}
+ConfigurationBindingInfo : {AppSense.ServerConfiguration.PowerShell.Model.ApsServerBindingDetails, AppSense.ServerConfiguration.PowerShell.Model.ApsServerBindingDetails}
+OriginalUpgradeCode      : 935bfcca-23d0-4a08-93e4-064025b91d7b
+InstanceId               : 935bfcca-23d0-4a08-93e4-064025b91d7b
+InstanceName             : DEFAULT</Output>
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Get" noun="AppSenseDesktopNowInstanceProperties">
+      <Name>Get-AppSenseDesktopNowInstanceProperties</Name>
+      <GeneralHelp>
+        <Synopsis>Retrieves details about the given product instance.</Synopsis>
+        <Description>The Get-AppSenseDesktopNowInstanceProperties cmdlet retrieves details about the given product instance.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;InstanceRegistry.Instance</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $false if an error occurred.  If $false is returned check the $error variable for details.;The details of the specified instance as per the API documentation.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="ProductName InstanceName TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Get-AppSenseDesktopNowInstanceProperties [-ProductName] &lt;Products&gt; [[-InstanceName] &lt;String&gt;] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="Products" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>ProductName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The product to retrieve the instance details for.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>InstanceName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the instance to retrieve details for.  If this is not provided the default instance is assumed.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Get-AppSenseDesktopNowInstanceProperties -ProductName ManagementCenter -TrackTime -Verbose</Cmd>
+          <Description>This example retrieves basic details for the default instance of Management Centre.</Description>
+          <Output>Name                : DEFAULT
+InstanceId          : 935bfcca-23d0-4a08-93e4-064025b91d7b
+ProductCode         : cf765d35-260d-4047-9722-bf211ee78a31
+OriginalUpgradeCode : 935bfcca-23d0-4a08-93e4-064025b91d7b
+OriginalProductCode : cf765d35-260d-4047-9722-bf211ee78a31
+Version             : 8.7.620.0
+InstallPath         : C:\Program Files\AppSense\Management Center\Server\Bin\
+CmdletPath          : C:\Program Files\AppSense\Management Center\Server\Bin\AppSense.ServerConfiguration.PowerShell.dll;C:\Program Files\AppSense\Management Center\Server\Bin\AppSense.ManagementServer.PowerShell.dll
+ProductName         : AppSense Management Server 8.7 SP1
+IsDefault           : True
+Status              : Unknown
+DisplayName         : AppSense Management Server 8.7 SP1 (DEFAULT)</Output>
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+  </Cmdlets>
+</ModuleObject>

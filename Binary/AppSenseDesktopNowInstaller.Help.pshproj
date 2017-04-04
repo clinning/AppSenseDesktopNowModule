@@ -1,0 +1,482 @@
+<?xml version="1.0"?>
+<ModuleObject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" fVersion="1.1" type="Script" mclass="External" useSupports="false">
+  <Name>AppSenseDesktopNowInstaller</Name>
+  <Version>2015.9.2.0</Version>
+  <Description>A module that allows installation of the server components, and the pre-requisites, of the AppSense DesktopNow suite.</Description>
+  <ModulePath>C:\Users\jamess\ownCloud\scripts\AppSense\AppSense API\AppSenseDesktopNowModule_WIP\Binary\AppSenseDesktopNowInstaller.psd1</ModulePath>
+  <HasManifest>false</HasManifest>
+  <OverridePostCount>false</OverridePostCount>
+  <FetchPostCount xsi:nil="true" />
+  <Cmdlets>
+    <CmdletObject verb="Add" noun="AppSenseDesktopNowComponent">
+      <Name>Add-AppSenseDesktopNowComponent</Name>
+      <GeneralHelp>
+        <Synopsis>Installs an AppSense component and all required pre-requisites.</Synopsis>
+        <Description>The Add-AppSenseDesktopNowComponent cmdlet installs an AppSense component and all required pre-requisites.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $true when the component has been successfully installed and $false if an error occurred whilst installing.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="Instance" Params="Component ComponentPath PrerequisitePath InstanceName BinPath SetupParams SxSPath TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Add-AppSenseDesktopNowComponent -Component &lt;Products&gt; [-ComponentPath &lt;String&gt;] [-PrerequisitePath &lt;String&gt;] [-InstanceName &lt;String&gt;] [-BinPath &lt;String&gt;] [-SetupParams &lt;String[]&gt;] [-SxSPath &lt;String&gt;] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="Products" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Component</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the component to install.
+Current available values are ManagementCentre, PersonalisationServer.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ComponentPath</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The path to look for the msi installers for the specified component.
+If an absolute path is specified then the value provided to Set-AppSenseDesktopNowBasePath is ignored.</Description>
+          <DefaultValue>Software\Products</DefaultValue>
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>PrerequisitePath</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The path to look for the pre-requisites for the specified component.
+If an absolute path is specified then the value provided to Set-AppSenseDesktopNowBasePath is ignored.</Description>
+          <DefaultValue>Software\Prerequisites</DefaultValue>
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>InstanceName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The instance name to give the AppSense component.
+If omitted then the component is installed as the default instance.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>BinPath</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The path to look for the InstallerCmd.exe.
+If an absolute path is specified then the value provided to Set-AppSenseDesktopNowBasePath is ignored.</Description>
+          <DefaultValue>Bin</DefaultValue>
+        </ParameterDescription>
+        <ParameterDescription type="String[]" varLen="true" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>SetupParams</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Additional parameters to be passed to the installer.
+If providing the PATCH option to in this parameter, please provide the full path to the patch file.  This is a requirement for the Windows Installer.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>SxSPath</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The absolute path to the SxS folder.  Currently this is only required on those platforms that have the .NET Framework 3.5 components as a Windows Feature.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Add-AppSenseDesktopNowComponent -Component ManagementCentre -TrackTime -Verbose</Cmd>
+          <Description>This example installs the default instance of the AppSense Management Server.  It will display progress and track the time taken to reach each part.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Add-AppSenseDesktopNowComponent -Component PersonalisationServer -SxSPath "D:\sources\sxs" -TrackTime -Verbose</Cmd>
+          <Description>This example installs the default instance of the AppSense Personalisation Server.  It will display progress and track the time taken to reach each part.  If .NET Framework 3.5 needs to be installed as a Windows Feature then additional files will be read from "D:\sources\sxs" to facilitate this.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 3</Name>
+          <Cmd>Add-AppSenseDesktopNowComponent -Component ManagementCentre -InstanceName "Test" -TrackTime -Verbose</Cmd>
+          <Description>This example installs an instance of the AppSense Management Server called "Test".  It will display progress and track the time taken to reach each part.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Set-AppSenseDestopNowBasePath</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Add" noun="AppSenseDesktopNowConsole">
+      <Name>Add-AppSenseDesktopNowConsole</Name>
+      <GeneralHelp>
+        <Synopsis>Installs an AppSense console and all required pre-requisites.</Synopsis>
+        <Description>The Add-AppSenseDesktopNowConsole cmdlet installs an AppSense component and all required pre-requisites.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>
+Returns $true when the console has been successfully installed and $false if an error occurred whilst installing.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="Console ConsolePath PrerequisitePath SetupParams TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Add-AppSenseDesktopNowConsole [-Console] &lt;Consoles&gt; [[-ConsolePath] &lt;String&gt;] [[-PrerequisitePath] &lt;String&gt;] [[-SetupParams] &lt;String[]&gt;] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="Consoles" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>Console</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the console to install.
+Current available values are ManagementCentre, EnvironmentManagerPolicyOnly, EnvironmentManagerPersonalisationOnly, EnvironmentManagerPolicyAndPersonalisation.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="2" globbing="false">
+          <Name>ConsolePath</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The path to look for the msi installers for the specified console.
+If an absolute path is specified then the value provided to Set-AppSenseDesktopNowBasePath is ignored.</Description>
+          <DefaultValue>Software\Product</DefaultValue>
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="3" globbing="false">
+          <Name>PrerequisitePath</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The path to look for the pre-requisites for the specified component.
+If an absolute path is specified then the value provided to Set-AppSenseDesktopNowBasePath is ignored.</Description>
+          <DefaultValue>Software\Prerequisites</DefaultValue>
+        </ParameterDescription>
+        <ParameterDescription type="String[]" varLen="true" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="4" globbing="false">
+          <Name>SetupParams</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Additional parameters to be passed to the installer.
+If providing the PATCH option to in this parameter, please provide the full path to the patch file.  This is a requirement for the Windows Installer.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples />
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Set-AppSenseDesktopNowBasePath</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Get" noun="AppSenseDesktopNowBasePath">
+      <Name>Get-AppSenseDesktopNowBasePath</Name>
+      <GeneralHelp>
+        <Synopsis>Retrieves the path that is currently set as the base path when searching for installers.</Synopsis>
+        <Description>The Get-AppSenseDesktopNowBasePath cmdlet retrieves the path that is currently set as the base path when searching for installers.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.String</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription />
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Get-AppSenseDesktopNowBasePath</string>
+      </Syntax>
+      <Parameters />
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Get-AppSenseDesktopNowBasePath</Cmd>
+          <Description>This example returns the current path set as the base path.</Description>
+          <Output>C:\AppSenseDesktopNowInstallers</Output>
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Set-AppSenseDesktopNowBasePath</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Set" noun="AppSenseDesktopNowBasePath">
+      <Name>Set-AppSenseDesktopNowBasePath</Name>
+      <GeneralHelp>
+        <Synopsis>Sets the base path to be used when searching for any files required by the installers.</Synopsis>
+        <Description>The Set-AppSenseDesktopNowBasePath cmdlet sets the base path to be used when searching for any files required by the installers.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>
+Returns $true when the path has been successfully set and $false if an error occurred whilst setting the path.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="BasePath TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Set-AppSenseDesktopNowBasePath [-BasePath] &lt;String&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>BasePath</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The path to be used when searching for any files required by the installers.</Description>
+          <DefaultValue>Current Directory</DefaultValue>
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Set-AppSenseDesktopNowBasePath C:\DesktopNowInstallers</Cmd>
+          <Description>This example sets the base path to be C:\DesktopNowInstallers.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Get-AppSenseDesktopNowBasePath</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Add-AppSenseDesktopNowComponent</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Update" noun="AppSenseDesktopNowComponent">
+      <Name>Update-AppSenseDesktopNowComponent</Name>
+      <GeneralHelp>
+        <Synopsis>Applies the given patch to the server.</Synopsis>
+        <Description>The Update-AppSenseDesktopNowComponent cmdlet applies the given patch to the server.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $true when the patch has been successfully installed and $false if an error occurred whilst installing.  If $false is returned check the $error variable for details.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="Instance" Params="PatchPath InstanceName BinPath SetupParams TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Update-AppSenseDesktopNowComponent -PatchPath &lt;String&gt; [-InstanceName &lt;String&gt;] [-BinPath &lt;String&gt;] [-SetupParams &lt;String[]&gt;] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>PatchPath</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The path to look for the msp in.
+If an absolute path is specified then the value provided to Set-AppSenseDesktopNowBasePath is ignored.
+If a relative path is supplied then "Software\Products" is prepended to the path supplied and is looked for in the path given to Set-AppSenseDesktopNowBasePath.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>InstanceName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The instance name to give the AppSense component.
+If omitted then the component is installed as the default instance.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>BinPath</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The path to look for the InstallerCmd.exe.
+If an absolute path is specified then the value provided to Set-AppSenseDesktopNowBasePath is ignored.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String[]" varLen="true" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>SetupParams</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Additional parameters to be passed to the installer.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Update-AppSenseDesktopNowComponent -PatchPath "PersonalizationServer64.msp" -InstanceName "TestInstance" -TrackTime -Verbose</Cmd>
+          <Description>This example will attempt to apply the "PersonalizationServer64.msp" patch file to the server for the "TestInstance" instance of the product.  It will look in the "Products\Software" subfolder of the path supplied in the Set-AppSenseDesktopNowBasePath cmdlet.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Update-AppSenseDesktopNowComponent -PatchPath "EnvironmentManagerConsole64.msp" -TrackTime -Verbose</Cmd>
+          <Description>This example will attempt to apply the "EnvironmentManagerConsole64.msp" patch file to the server.  It will look in the "Products\Software" subfolder of the path supplied in the Set-AppSenseDesktopNowBasePath cmdlet.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Set-AppSenseDesktopNowBasePath</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Add-AppSenseDesktopNowComponent</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Set" noun="AppSenseDesktopNowLogPath">
+      <Name>Set-AppSenseDesktopNowLogPath</Name>
+      <GeneralHelp>
+        <Synopsis />
+        <Description />
+        <Notes />
+        <InputType />
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType />
+        <ReturnUrl />
+        <ReturnTypeDescription />
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="Path TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Set-AppSenseDesktopNowLogPath [-Path] &lt;String&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>Path</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description />
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description />
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples />
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+  </Cmdlets>
+</ModuleObject>

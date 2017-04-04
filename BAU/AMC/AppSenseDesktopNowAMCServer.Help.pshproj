@@ -1,0 +1,402 @@
+<?xml version="1.0"?>
+<ModuleObject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" fVersion="1.1" type="Script" mclass="External" useSupports="false">
+  <Name>AppSenseDesktopNowAMCServer</Name>
+  <Version>2015.8.25.0</Version>
+  <Description>Allows management of the BAU tasks for Server methods required for the AppSense Management Server</Description>
+  <ModulePath>.\AppSenseDesktopNowAMCServer.psd1</ModulePath>
+  <HasManifest>false</HasManifest>
+  <OverridePostCount>false</OverridePostCount>
+  <FetchPostCount xsi:nil="true" />
+  <Cmdlets>
+    <CmdletObject verb="Connect" noun="AppSenseManagementServer">
+      <Name>Connect-AppSenseManagementServer</Name>
+      <GeneralHelp>
+        <Synopsis>Connects to the specified AppSense Management Server.  All subsequent cmdlets will use this server for their operations.</Synopsis>
+        <Description>The Connect-AppSenseManagementServer cmdlet will create a connection to the specified AppSense Management Server using the provided credetials.  If no credentials are provided then the user will prompted to enter some.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>The cmdlet returns boolean false on failure or boolean true when a successful connection is made.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="AsUser" Params="Server Credentials Port UseHTTPS TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="AsCurrentUser" Params="Server Port UseHTTPS UseCurrentUser TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Connect-AppSenseManagementServer -Server &lt;String&gt; -Credentials &lt;PSCredential&gt; [-Port &lt;UInt32&gt;] [-UseHTTPS] [-TrackTime]</string>
+        <string>Connect-AppSenseManagementServer -Server &lt;String&gt; [-Port &lt;UInt32&gt;] [-UseHTTPS] -UseCurrentUser &lt;SwitchParameter&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="UInt32" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Port</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The port number to use when connecting to the Management Server</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>UseHTTPS</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When specified HTTPS will be used to connect to the Management Server</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>UseCurrentUser</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the cmdlet will use the credentials of the executing user in order to connect to the AppSense Management Server.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Server</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Specifies name of the AppSense Management Server to connect to.  This can be either NetBIOS or FQDN.  Only the hostname is required.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Credentials</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of a user to connect to the AppSense Management Server with.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Connect-AppSenseManagementServer "APS-MGMT-01" -UseCurrentUser</Cmd>
+          <Description>This example will use the credentials of the user executing the cmdlet to create a connection to the "APS-MGMT-01" server.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Connect-AppSenseManagementServer "APS-MGMT-01" -Credentials (Get-Credential)</Cmd>
+          <Description>This example will prompt the user to enter the credentials required for connecting to "APS-MGMT-01".</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Get" noun="AppSenseManagementServerDetails">
+      <Name>Get-AppSenseManagementServerDetails</Name>
+      <GeneralHelp>
+        <Synopsis>Retrieves information about the AppSense Management Server.</Synopsis>
+        <Description>The Get-AppSenseManagementServerDetails cmdlet retrieves information about the AppSense Management Server.  This information is the summary information that is normally found in the server details area of the AppSense Management Console.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;ManagementConsole.DatabaseWebService.NamedValuesDataSet+NamedValuesRow[]</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>The cmdlet returns boolean false on failure.  If failure has occurred use the global PowerShell $error array to retrieve error information.;
+The cmdlet returns an enumerable dataset of key-value pairs on success.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Get-AppSenseManagementServerDetails [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>(Get-AppSenseManagementServerDetails) | Where Name -eq 'SQL Server Version'</Cmd>
+          <Description>This example retrieves the information about the AppSense Management Server and then filters the result in order to get the 'SQL Server Version' that connected database is using.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Get" noun="AppSenseManagementServerName">
+      <Name>Get-AppSenseManagementServerName</Name>
+      <GeneralHelp>
+        <Synopsis>Retrieves the name of the AppSense Management Server that you are currently connected to.</Synopsis>
+        <Description>The Get-AppSenseManagementServerName cmdlet retrieves the name of the AppSense Management Server that you are currently connected to.  This value is as it is stored in the AppSense Management Server Database.  This may differ from the name that you provided in the Connect-AppSenseManagementServer cmdlet.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;System.String</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>The cmdlet returns boolean false on failure.  If failure has occurred use the global PowerShell $error array to retrieve error information.;
+The cmdlet returns a string containing the server name on success.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Get-AppSenseManagementServerName [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples />
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Get" noun="AppSenseManagementServerTimeZone">
+      <Name>Get-AppSenseManagementServerTimeZone</Name>
+      <GeneralHelp>
+        <Synopsis />
+        <Description />
+        <Notes />
+        <InputType />
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType />
+        <ReturnUrl />
+        <ReturnTypeDescription />
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="" />
+      </ParamSets>
+      <Syntax>
+        <string>Get-AppSenseManagementServerTimeZone</string>
+      </Syntax>
+      <Parameters />
+      <Examples />
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Get" noun="AppSenseManagementServerVersion">
+      <Name>Get-AppSenseManagementServerVersion</Name>
+      <GeneralHelp>
+        <Synopsis>Retrieves the current version of the currently connected AppSense Management Server.</Synopsis>
+        <Description>The Get-AppSenseManagementServerVersion cmdlet retrieves the current version of the currently connected AppSense Management Server.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;System.String</ReturnType>
+        <ReturnUrl>;</ReturnUrl>
+        <ReturnTypeDescription>
+The cmdlet returns boolean false on failure.  If failure has occurred use the global PowerShell $error array to retrieve error information.;
+The cmdlet returns a string containing the server version on success.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Get-AppSenseManagementServerVersion [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Get-AppSenseManagementServerVersion</Cmd>
+          <Description>The example retrieves the version of the currently connected AppSense Management Server</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Invoke" noun="AppSenseManagementServerMethod">
+      <Name>Invoke-AppSenseManagementServerMethod</Name>
+      <GeneralHelp>
+        <Synopsis>A pass-through cmdlet that allows an API method to be executed.</Synopsis>
+        <Description>The Invoke-AppSenseManagementServerMethod acts as a pass-through to the API methods available.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>Mixed as per manual</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>The cmdlet returns boolean false on failure.  If failure has occurred use the global PowerShell $error array to retrieve error information.  On success the return will be in the format for the API as described in the manual.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="DataAccessEndpoint MethodName MethodArguments TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Invoke-AppSenseManagementServerMethod [-DataAccessEndpoint] &lt;String&gt; [-MethodName] &lt;String&gt; [[-MethodArguments] &lt;Array&gt;] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>DataAccessEndpoint</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the DataAccess Endpoint that the module can be found in</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>MethodName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the method that should be executed</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Array" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="2" globbing="false">
+          <Name>MethodArguments</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The arguments to be passed to the specified method</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Invoke-AppSenseManagementServerMethod -DataAccessEndpoint Security -MethodName GetUsers</Cmd>
+          <Description>This example shows calling the GetUsers method from the Security DataAccess Endpoint.  This method requires no arguments.  It will return a dataset in accordance with the API.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Invoke-AppSenseManagementServerMethod -DataAccessEndpoint Machines -MethodName GetMachines -MethodArguments $false</Cmd>
+          <Description>This example returns a dataset in accordance with the API that contains the machines registered in the Management Server.  It will pass the value $false to the method.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 3</Name>
+          <Cmd>Invoke-AppSenseManagementServerMethod -DataAccessEndpoint Groups -MethodName GetGroupFromKey -MethodArguments @("10A1CC29-DAFC-4850-A036-1A9956724A08", 0)</Cmd>
+          <Description>This example will call the "GetGroupFromKey" method in the "Groups" DataAccessEndpoint passing multiple arguments into the method.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Set" noun="AppSenseManagementServerTimeZone">
+      <Name>Set-AppSenseManagementServerTimeZone</Name>
+      <GeneralHelp>
+        <Synopsis />
+        <Description />
+        <Notes />
+        <InputType />
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType />
+        <ReturnUrl />
+        <ReturnTypeDescription />
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="TimeZoneString TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Set-AppSenseManagementServerTimeZone [-TimeZoneString] &lt;String&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>TimeZoneString</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description />
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description />
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Set-AppSenseManagementServerTimeZone 'West Pacific Standard Time'</Cmd>
+          <Description>This example instructs all subsequent cmdlet to use the time zone when communicating with the connected AppSense Management Server.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+  </Cmdlets>
+</ModuleObject>

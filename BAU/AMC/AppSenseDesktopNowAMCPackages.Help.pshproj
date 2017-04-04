@@ -1,0 +1,819 @@
+<?xml version="1.0"?>
+<ModuleObject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" fVersion="1.1" type="Script" mclass="External" useSupports="false">
+  <Name>AppSenseDesktopNowAMCPackages</Name>
+  <Version>2015.10.30.0</Version>
+  <Description />
+  <ModulePath>.\AppSenseDesktopNowAMCPackages.psd1</ModulePath>
+  <HasManifest>false</HasManifest>
+  <OverridePostCount>false</OverridePostCount>
+  <FetchPostCount xsi:nil="true" />
+  <Cmdlets>
+    <CmdletObject verb="Connect" noun="AppSenseManagementServerPackageServer">
+      <Name>Connect-AppSenseManagementServerPackageServer</Name>
+      <GeneralHelp>
+        <Synopsis>Connects to the specified AppSense Management Server.  All subsequent cmdlets will use this server for their operations.</Synopsis>
+        <Description>The Connect-AppSenseManagementServerPackageServer cmdlet will create a connection to the specified AppSense Management Server using the provided credentials.  If no credentials are provided then the user will prompted to enter some.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$false if an error occurred or $true when a successful connection is made.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="AsUser" Params="Server Credentials Port UseHTTPS TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="AsCurrentUser" Params="Server Port UseHTTPS UseCurrentUser TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Connect-AppSenseManagementServerPackageServer -Server &lt;String&gt; -Credentials &lt;PSCredential&gt; [-Port &lt;UInt32&gt;] [-UseHTTPS] [-TrackTime]</string>
+        <string>Connect-AppSenseManagementServerPackageServer -Server &lt;String&gt; [-Port &lt;UInt32&gt;] [-UseHTTPS] -UseCurrentUser &lt;SwitchParameter&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="UInt32" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Port</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The port number to use when connecting to the Management Server</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>UseHTTPS</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When specified HTTPS will be used to connect to the Management Server</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>UseCurrentUser</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied the cmdlet will use the credentials of the executing user in order to connect to the AppSense Management Server.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Server</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Specifies name of the AppSense Management Server to connect to.  This can be either NetBIOS or FQDN.  Only the hostname is required.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Credentials</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.CredentialAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials of a user to connect to the AppSense Management Server with.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Connect-AppSenseManagementServerPackageServer "APS-MGMT-01" -UseCurrentUser</Cmd>
+          <Description>This example will use the credentials of the user executing the cmdlet to create a connection to the "APS-MGMT-01" server.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Connect-AppSenseManagementServerPackageServer "APS-MGMT-01" -Credentials (Get-Credential)</Cmd>
+          <Description>This example will prompt the user to enter the credentials required for connecting to "APS-MGMT-01".</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Get" noun="AppSenseManagementServerPackage">
+      <Name>Get-AppSenseManagementServerPackage</Name>
+      <GeneralHelp>
+        <Synopsis>Retrieves details about the packages stored in the Management Server.</Synopsis>
+        <Description>The Get-AppSenseManagementServerPackage cmdlet retrieves details about the packages stored in the Management Server.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;System.Management.Automation.PSCustomObject[]</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$false if an error occurred;An array of custom objects containing the following information:
+
+BaseVersion (System.Version)(if applicable),
+LockedBy (System.String),
+Type (System.String),
+Platform (Sytsem.Int32),
+Version (System.Version),
+Locked (System.Boolean),
+Name (System.String),
+PackageKey (System.Guid),
+PatchKey (System.Guid)(if applicable)</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="All" Params="Product Name Type Platform TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ByKey" Params="PackageKey TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ByVersion" Params="Product Name Type Platform Version TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="LatestVersion" Params="Product Name Type Platform LatestVersion TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Get-AppSenseManagementServerPackage [-Product &lt;String&gt;] [-Name &lt;String&gt;] [-Type &lt;PackageTypes&gt;] [-Platform &lt;PackagePlatform&gt;] [-TrackTime]</string>
+        <string>Get-AppSenseManagementServerPackage -PackageKey &lt;String&gt; [-TrackTime]</string>
+        <string>Get-AppSenseManagementServerPackage [-Product &lt;String&gt;] [-Name &lt;String&gt;] [-Type &lt;PackageTypes&gt;] [-Platform &lt;PackagePlatform&gt;] -Version &lt;Version&gt; [-TrackTime]</string>
+        <string>Get-AppSenseManagementServerPackage [-Product &lt;String&gt;] [-Name &lt;String&gt;] [-Type &lt;PackageTypes&gt;] [-Platform &lt;PackagePlatform&gt;] -LatestVersion &lt;SwitchParameter&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Name</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Only packages with a matching name are returned.  Fuzzy searching is used so the supplied text only has to appear in the package name.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PackageTypes" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Type</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The type of package to return.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PackagePlatform" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Platform</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The platform of the packages to return.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>PackageKey</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The unique ID of the package to retrieve details for.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>LatestVersion</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied only the latest version of the package will be returned.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Version" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Version</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied, only those packages which match the specified version will be returned.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Product</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the product to return packages for.  This name must match that shown in the Packages section of the console.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Get-AppSenseManagementServerPackage</Cmd>
+          <Description>This example will return a dataset containing information about all packages stored in the Management Server.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Get-AppSenseManagementServerPackage -Type Agent</Cmd>
+          <Description>This example will return a dataset for all agents stored in the Management Server.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 3</Name>
+          <Cmd>Get-AppSenseManagementServerPackage -Type Agent -Product "Application Manager"</Cmd>
+          <Description>This example will return a dataset consisting off all Application Manager agents stored in the Management Server.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 4</Name>
+          <Cmd>Get-AppSenseManagementServerPackage -Product "Environment Manager"</Cmd>
+          <Description>This example will return a dataset consisting of all packages for Environment Manager that are stored in the Management Server.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 5</Name>
+          <Cmd>Get-AppSenseManagementServerPackage -Product "Environment Manager" -LatestVersion</Cmd>
+          <Description>This example returns and array of the latest versions of all Environment Manager packages stored in the Management Server.</Description>
+          <Output>BaseVersion : 8.6.313.0
+LockedBy    :
+Type        : msi/agent
+Platform    : 2
+Version     : 8.6.354.0
+Locked      : False
+Name        : AppSense Environment Manager Agent (x64)
+PackageKey  : 4336b40f-68f7-43be-98b8-75fcfcef33c7
+PatchKey    : 3c261d92-81fd-43ba-9dd4-ce3ce41b1a6d</Output>
+        </Example>
+        <Example>
+          <Name>Example 6</Name>
+          <Cmd>Get-AppSenseManagementServerPackage -Product "Environment Manager" -Type Agent -Version 8.6.313.0</Cmd>
+          <Description>This example returns details about the Environment Manager agent with the specified version.</Description>
+          <Output>BaseVersion : 8.6.313.0
+LockedBy    :
+Type        : msi/agent
+Platform    : 2
+Locked      : False
+Name        : AppSense Environment Manager Agent (x64)
+PackageKey  : 4336b40f-68f7-43be-98b8-75fcfcef33c7</Output>
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Lock-AppSenseManagementServerPackage</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Import-AppSenseManagementServerPackage</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Unlock-AppSenseManagementServerPackage</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Import" noun="AppSenseManagementServerPackage">
+      <Name>Import-AppSenseManagementServerPackage</Name>
+      <GeneralHelp>
+        <Synopsis>Imports the specified package to the Management Server and optionally uploads the relevant pre-requisites.</Synopsis>
+        <Description>The Import-AppSenseManagementServerPackage cmdlet imports the specified package to the Management Server and optionally uploads the relevant pre-requisites.
+Packages can be licenses, agents, configurations or patches to agents.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$true if the package was successfully imported and $false if an error occurred.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="PackagePath PrerequisitePath Description ChunkSizeBytes ResetVersion ShowProgress TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Import-AppSenseManagementServerPackage [-PackagePath] &lt;String&gt; [[-PrerequisitePath] &lt;String&gt;] [[-Description] &lt;String&gt;] [[-ChunkSizeBytes] &lt;Int32&gt;] [-ResetVersion] [-ShowProgress] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>PackagePath</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The full path to the package to import.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="1" globbing="false">
+          <Name>PrerequisitePath</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The path to the folder that contains any necessary pre-requites.</Description>
+          <DefaultValue>Current working directory</DefaultValue>
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="2" globbing="false">
+          <Name>Description</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The description to assign to the package being imported.</Description>
+          <DefaultValue>API uploaded package</DefaultValue>
+        </ParameterDescription>
+        <ParameterDescription type="Int32" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="3" globbing="false">
+          <Name>ChunkSizeBytes</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The number of bytes to upload at a time.</Description>
+          <DefaultValue>2097152</DefaultValue>
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ResetVersion</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>If supplied, and the package is a configuration, the version number will be reset to Major.Minor.0.0</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ShowProgress</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>If supplied a standard progressbar is shown whilst uploading the given package.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Import-AppSenseManagementServerPackage -PackagePath "C:\DesktopNowInstall\Software\Products\EnvironmentManagerAgent64.msi" -PrerequisitePath "C:\DesktopNowInstall\Software\Prerequisites" -ShowProgress</Cmd>
+          <Description>This example will import the 64-bit Environment Manager agent into the Management Server.  The pre-requisites will also be uploaded from the path specified and associated with the agent.  A progressbar will be shown whilst uploading packages and pre-requisites.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Import-AppSenseManagementServerPackage -PackagePath "C:\DesktopNowInstall\Software\Products\EnvironmentManagerAgent64.msp" -ShowProgress</Cmd>
+          <Description>This example will upload the Environment Manger agent patch file from the specified location.  A progressbar will be shown whilst uploading the file.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 3</Name>
+          <Cmd>Import-AppSenseManagementServerPackage -PackagePath "C:\AppSense Licenses.msi"</Cmd>
+          <Description>This example will import all licenses stored in the given msi file.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 4</Name>
+          <Cmd>Import-AppSenseManagementServerPackage -PackagePath "C:\AppSense Environment Manager 8.6 Configuration 'EM Test'.msi"</Cmd>
+          <Description>This example imports the configuration stored in the given MSI file.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 5</Name>
+          <Cmd>Import-AppSenseManagementServerPackage -PackagePath "C:\AppSense Environment Manager 8.6 Configuration 'EM Test'.msi" -ResetVersion</Cmd>
+          <Description>This example imports the configuration stored in the given MSI file and resets the version number to Major.Minor.0.0</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Get-AppSenseManagementServerPackage</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Lock-AppSenseManagementServerPackage</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Unlock-AppSenseManagementServerPackage</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Lock" noun="AppSenseManagementServerPackage">
+      <Name>Lock-AppSenseManagementServerPackage</Name>
+      <GeneralHelp>
+        <Synopsis>Applies a lock to the specified package.</Synopsis>
+        <Description>The Lock-AppSenseManagementServerPackage cmdlet applies a lock to the specified package.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$true if the lock is successfully applied and $false if an error has occurred.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="PackageKey TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Lock-AppSenseManagementServerPackage [-PackageKey] &lt;String&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>PackageKey</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The unique ID of the package to lock.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples />
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Unlock-AppSenseManagementServerPackage</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Get-AppSenseManagementServerPackage</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Import-AppSenseManagementServerPackage</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Unlock" noun="AppSenseManagementServerPackage">
+      <Name>Unlock-AppSenseManagementServerPackage</Name>
+      <GeneralHelp>
+        <Synopsis>Removes the lock that is currently applied to the given package.</Synopsis>
+        <Description>The Unlock-AppSenseManagementServerPackage cmdlet removes the lock that is currently applied to the given package.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$true if the lock is successfully removed and $false if an error occured.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="PackageKey TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Unlock-AppSenseManagementServerPackage [-PackageKey] &lt;String&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>PackageKey</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The unique ID of the package to unlock.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples />
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Lock-AppSenseManagementServerPackage</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Get-AppSenseManagementServerPackage</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Import-AppSenseManagementServerPackage</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Export" noun="AppSenseManagementServerPackage">
+      <Name>Export-AppSenseManagementServerPackage</Name>
+      <GeneralHelp>
+        <Synopsis>Exports packages and optionally their base packages and prerequisites to disk.</Synopsis>
+        <Description>The Export-AppSenseManagementServerPackage cmdlet exports packages and optionally their base packages and prerequisites to disk.</Description>
+        <Notes />
+        <InputType />
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$true if the lock is successfully applied and $false if an error has occurred.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="All" Params="DestinationFolder ChunkSizeBytes Product Name Type Platform IncludeBase IncludePrerequisites ShowProgress TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ByKey" Params="DestinationFolder ChunkSizeBytes PackageKey IncludeBase IncludePrerequisites ShowProgress TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ByVersion" Params="DestinationFolder ChunkSizeBytes Product Name Type Platform Version IncludeBase IncludePrerequisites ShowProgress TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="LatestVersion" Params="DestinationFolder ChunkSizeBytes Product Name Type Platform LatestVersion IncludeBase IncludePrerequisites ShowProgress TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Export-AppSenseManagementServerPackage -DestinationFolder &lt;String&gt; [-ChunkSizeBytes &lt;Int32&gt;] [-Product &lt;String&gt;] [-Name &lt;String&gt;] [-Type &lt;PackageTypes&gt;] [-Platform &lt;PackagePlatform&gt;] [-IncludeBase] [-IncludePrerequisites] [-ShowProgress] [-TrackTime]</string>
+        <string>Export-AppSenseManagementServerPackage -DestinationFolder &lt;String&gt; [-ChunkSizeBytes &lt;Int32&gt;] -PackageKey &lt;String&gt; [-IncludeBase] [-IncludePrerequisites] [-ShowProgress] [-TrackTime]</string>
+        <string>Export-AppSenseManagementServerPackage -DestinationFolder &lt;String&gt; [-ChunkSizeBytes &lt;Int32&gt;] [-Product &lt;String&gt;] [-Name &lt;String&gt;] [-Type &lt;PackageTypes&gt;] [-Platform &lt;PackagePlatform&gt;] -Version &lt;Version&gt; [-IncludeBase] [-IncludePrerequisites] [-ShowProgress] [-TrackTime]</string>
+        <string>Export-AppSenseManagementServerPackage -DestinationFolder &lt;String&gt; [-ChunkSizeBytes &lt;Int32&gt;] [-Product &lt;String&gt;] [-Name &lt;String&gt;] [-Type &lt;PackageTypes&gt;] [-Platform &lt;PackagePlatform&gt;] -LatestVersion &lt;SwitchParameter&gt; [-IncludeBase] [-IncludePrerequisites] [-ShowProgress] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>DestinationFolder</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The folder to export all of the required packages to.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Int32" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ChunkSizeBytes</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The number of bytes to export at a time.</Description>
+          <DefaultValue>2097152</DefaultValue>
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Product</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the product to export packages for.  This name must match that shown in the Packages section of the console.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Name</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>Only packages with a matching name are exported.  Fuzzy searching is used so the supplied text only has to appear in the package name.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PackageTypes" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Type</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The type of package to export.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PackagePlatform" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Platform</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The platform of the packages to export.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>IncludeBase</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>If supplied and the package to be exported is a patch then the base package is also exported.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>IncludePrerequisites</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>If supplied any pre-requisites are also exported.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ShowProgress</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>If supplied a standard progressbar is shown whilst exporting the given package.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>PackageKey</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The unique ID of the package to export.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="Version" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Version</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When supplied, only those packages which match the specified version will be exported.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>LatestVersion</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided only the latest version of the specified package will be exported.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Export-AppSenseManagementServerPackage -DestinationFolder C:\Temp -Product "Application Manager" -Type Agent -Platform Platform64 -IncludeBase -IncludePrerequisites -ShowProgress -TrackTime -Verbose</Cmd>
+          <Description>This example will export the latest Application Manager x64 agent including the base package (if it is a patch) and any prerequisites.  It will put the files in the C:\Temp folder and will show progress on the screen as well.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Export-AppSenseManagementServerPackage -DestinationFolder C:\Temp -Name "Demo" -TrackTime -Verbose</Cmd>
+          <Description>This example will export all packages that have the word "Demo" in their name - irrespective of package type or product.  The exported packages will be placed in the C:\Temp folder.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 3</Name>
+          <Cmd>Export-AppSenseManagementServerPackage -DestinationFolder C:\Temp -PackageKey b85aefac-2f3f-4f3d-a46b-f8d19424cf68 -TrackTime -Verbose</Cmd>
+          <Description>This example will export all versions of the package with the specified key.  The exported files will be placed in the C:\Temp folder.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Import-AppSenseManagementServerPackage</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Get-AppSenseManagementServerPackage</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Lock-AppSenseManagementServerPackage</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Unlock-AppSenseManagementServerPackage</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Set" noun="AppSenseManagementServerLogPath">
+      <Name>Set-AppSenseManagementServerLogPath</Name>
+      <GeneralHelp>
+        <Synopsis />
+        <Description />
+        <Notes />
+        <InputType />
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType />
+        <ReturnUrl />
+        <ReturnTypeDescription />
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="__AllParameterSets" Params="Path TrackTime Verbose Debug ErrorAction WarningAction InformationAction ErrorVariable WarningVariable InformationVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Set-AppSenseManagementServerLogPath [-Path] &lt;String&gt; [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="true" pos="0" globbing="false">
+          <Name>Path</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description />
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description />
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples />
+      <RelatedLinks />
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w10="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+  </Cmdlets>
+</ModuleObject>

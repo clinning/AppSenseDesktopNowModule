@@ -1,0 +1,776 @@
+<?xml version="1.0"?>
+<ModuleObject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" fVersion="1.1" type="Script" mclass="External" useSupports="false">
+  <Name>AppSenseDesktopNowAMCSecurity</Name>
+  <Version>2015.11.12.0</Version>
+  <Description>Allows management of the BAU tasks for Security methods required for the AppSense Management Server</Description>
+  <ModulePath>.\AppSenseDesktopNowAMCSecurity.psd1</ModulePath>
+  <HasManifest>false</HasManifest>
+  <OverridePostCount>false</OverridePostCount>
+  <FetchPostCount xsi:nil="true" />
+  <Cmdlets>
+    <CmdletObject verb="Get" noun="AppSenseManagementServerSecurityConfiguredUser">
+      <Name>Get-AppSenseManagementServerSecurityConfiguredUser</Name>
+      <GeneralHelp>
+        <Synopsis>Return details of users matching the given criteria.</Synopsis>
+        <Description>The Get-AppSenseManagementServerSecurityConfiguredUser cmdlet retrieves details of users matching the given criteria.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;ManagementConsole.SecurityWebService.UsersDataSet+UsersRow[];</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$false if an error occurs;Array of user rows as returned by the Web Services API.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="All" Params="GroupsOnly TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ByUser" Params="Username GroupsOnly TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ByKey" Params="UserKey GroupsOnly TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Get-AppSenseManagementServerSecurityConfiguredUser [-GroupsOnly] [-TrackTime]</string>
+        <string>Get-AppSenseManagementServerSecurityConfiguredUser -Username &lt;String&gt; [-GroupsOnly] [-TrackTime]</string>
+        <string>Get-AppSenseManagementServerSecurityConfiguredUser -UserKey &lt;String&gt; [-GroupsOnly] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>GroupsOnly</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided only groups are returned in the results.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Username</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The username to retrieve details for.  This should match as it is displayed in the console.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>UserKey</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The unique ID of the user to retrieve details for.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Get-AppSenseManagementServerSecurityConfiguredUser</Cmd>
+          <Description>This example returns all users/groups configured in the AppSense Management Server.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Get-AppSenseManagementServerSecurityConfiguredUser -GroupsOnly</Cmd>
+          <Description>This example returns only the groups that are configured in the AppSense Management Server.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 3</Name>
+          <Cmd>Get-AppSenseManagementServerSecurityConfiguredUser -Username "TEST\testuser"</Cmd>
+          <Description>This example returns the details for the user named "TEST\testuser" that is configured in the AppSense Management Server.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Remove-AppSenseManagementServerSecurityConfiguredUser</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Set-AppSenseManagementServerSecurityConfiguredUser</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Get" noun="AppSenseManagementServerSecurityRole">
+      <Name>Get-AppSenseManagementServerSecurityRole</Name>
+      <GeneralHelp>
+        <Synopsis>Retrieves details about the configured security roles.</Synopsis>
+        <Description>The Get-AppSenseManagementServerSecurityRole cmdlet retrieves details about the configured security roles.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;ManagementConsole.SecurityWebService.SecurityRolesDataSet+SecurityRolesRow[];ManagementConsole.SecurityWebService.SecurityRolesDataSet</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$false if an error occurs;Array of SecurityRolesRows as described by the Web Services API;SecurityRolesDataSet as described by the Web Services API.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="All" Params="Type ReturnDataSet IncludePermissions TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ByName" Params="Type Name ReturnDataSet TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ByKey" Params="RoleKey ReturnDataSet TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Get-AppSenseManagementServerSecurityRole [-Type &lt;RoleType&gt;] [-ReturnDataSet] [-IncludePermissions] [-TrackTime]</string>
+        <string>Get-AppSenseManagementServerSecurityRole [-Type &lt;RoleType&gt;] -Name &lt;String&gt; [-ReturnDataSet] [-TrackTime]</string>
+        <string>Get-AppSenseManagementServerSecurityRole -RoleKey &lt;String&gt; [-ReturnDataSet] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="RoleType" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Type</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The type of role to return details for.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ReturnDataSet</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the results are returned as a dataset.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>IncludePermissions</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the permissions will also be returned within the dataset.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Name</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the role to retrieve details for.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>RoleKey</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The unique ID of the role to retrieve details for.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Get-AppSenseManagementServerSecurityRole</Cmd>
+          <Description>This example returns both object and server security roles from the AppSense Management Server.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Get-AppSenseManagementServerSecurityRole -ReturnDataSet</Cmd>
+          <Description>This example returns a dataset of both object and server security roles from the AppSense Management Server.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 3</Name>
+          <Cmd>Get-AppSenseManagementServerSecurityRole -Type Object</Cmd>
+          <Description>This example returns only the object security roles from the AppSense Management Server.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 4</Name>
+          <Cmd>Get-AppSenseManagementServerSecurityRole -Name "Modifier" -Type Server</Cmd>
+          <Description>This example returns the server security role with the name "Modifier" from the AppSense Management Server.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 5</Name>
+          <Cmd>Get-AppSenseManagementServerSecurityRole -RoleKey 54e5b920-018d-4708-a711-5163c50a294e</Cmd>
+          <Description>This example returns the details for the security role with the specified unique ID.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Set-AppSenseManagementServerSecurityRole</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Remove-AppSenseManagementServerSecurityRole</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Remove" noun="AppSenseManagementServerSecurityConfiguredUser">
+      <Name>Remove-AppSenseManagementServerSecurityConfiguredUser</Name>
+      <GeneralHelp>
+        <Synopsis>Deletes matching users from the configured users in the AppSense Management Server.</Synopsis>
+        <Description>The Remove-AppSenseManagementServerSecurityConfiguredUser cmdlet deletes matching users from the configured users in the AppSense Management Server.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $true if the users have been successfully deleted and $false if an error occurred.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="ByUser" Params="Username TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable WhatIf Confirm" />
+        <CommandParameterSetInfo2 Name="ByKey" Params="UserKey TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable WhatIf Confirm" />
+      </ParamSets>
+      <Syntax>
+        <string>Remove-AppSenseManagementServerSecurityConfiguredUser -Username &lt;String&gt; [-TrackTime] [-WhatIf] [-Confirm]</string>
+        <string>Remove-AppSenseManagementServerSecurityConfiguredUser -UserKey &lt;String&gt; [-TrackTime] [-WhatIf] [-Confirm]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Username</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the user to be deleted.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>WhatIf</Name>
+          <Attributes>
+            <string>System.Management.Automation.AliasAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases>
+            <string>wi</string>
+          </Aliases>
+          <Description>Alerts what would have been carried out if this parameter was not supplied.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Confirm</Name>
+          <Attributes>
+            <string>System.Management.Automation.AliasAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases>
+            <string>cf</string>
+          </Aliases>
+          <Description>Prompts for confirmation before attempting to delete the matching user.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>UserKey</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The unique ID of the user to be deleted.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Remove-AppSenseManagementServerSecurityConfiguredUser -Username "TEST\testuser"</Cmd>
+          <Description>Deletes the "TEST\testuser" from the configured users in the AppSense Management Server.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Remove-AppSenseManagementServerSecurityConfiguredUser -Username "TEST\testuser" -Confirm</Cmd>
+          <Description>Deletes the "TEST\testuser" from the configured users in the AppSense Management Server prompting for confirmation.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Set-AppSenseManagementServerSecurityConfiguredUser</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Get-AppSenseManagementServerSecurityConfiguredUser</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Remove" noun="AppSenseManagementServerSecurityRole">
+      <Name>Remove-AppSenseManagementServerSecurityRole</Name>
+      <GeneralHelp>
+        <Synopsis>Deletes the matching security roles.</Synopsis>
+        <Description>The Remove-AppSenseManagementServerSecurityRole cmdlet deletes the matching security roles from the AppSense Management Server.</Description>
+        <Notes>Currently security roles that have been flagged as read only cannot currently be deleted.</Notes>
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>Returns $true if the security roles have been successfully deleted and $false if an error occurred.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="ByName" Params="Name Type TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable WhatIf Confirm" />
+        <CommandParameterSetInfo2 Name="ByKey" Params="RoleKey TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable WhatIf Confirm" />
+      </ParamSets>
+      <Syntax>
+        <string>Remove-AppSenseManagementServerSecurityRole -Name &lt;String&gt; -Type &lt;RoleType&gt; [-TrackTime] [-WhatIf] [-Confirm]</string>
+        <string>Remove-AppSenseManagementServerSecurityRole -RoleKey &lt;String&gt; [-TrackTime] [-WhatIf] [-Confirm]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Name</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the security role to be deleted.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="RoleType" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Type</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The type of the security role that is to be deleted.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>WhatIf</Name>
+          <Attributes>
+            <string>System.Management.Automation.AliasAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases>
+            <string>wi</string>
+          </Aliases>
+          <Description>Alerts what would have been carried out if this parameter was not supplied.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Confirm</Name>
+          <Attributes>
+            <string>System.Management.Automation.AliasAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases>
+            <string>cf</string>
+          </Aliases>
+          <Description>Prompts for confirmation before attempting to delete the matching security role.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>RoleKey</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The unique ID of the security role to delete.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Remove-AppSenseManagementServerSecurityRole -RoleKey 54e5b920-018d-4708-a711-5163c50a294e</Cmd>
+          <Description>This example deletes the security role with the specified unique ID.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Remove-AppSenseManagementServerSecurityRole -Name TestRole -Type Server -Confirm</Cmd>
+          <Description>This example will delete the server security role called "TestRole" and will prompt the user for confirmation.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Get-AppSenseManagementServerSecurityRole</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Set-AppSenseManagementServerSecurityRole</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Set" noun="AppSenseManagementServerSecurityConfiguredUser">
+      <Name>Set-AppSenseManagementServerSecurityConfiguredUser</Name>
+      <GeneralHelp>
+        <Synopsis>Creates the given user in the AppSense Management Server.</Synopsis>
+        <Description>The Set-AppSenseManagementServerSecurityConfiguredUser cmdlet creates the given user in the AppSense Management Server.</Description>
+        <Notes />
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;System.String</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$false if an error occurred;The unique of the user ID that was created.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="NTAccount" Params="Username SecurityRoles IsGroup TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ActiveDirectoryCreds" Params="Username SecurityRoles ADServer ADCredentials TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+        <CommandParameterSetInfo2 Name="ActiveDirectoryCurrentUser" Params="Username SecurityRoles ADServer ADUseCurrentUser TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable" />
+      </ParamSets>
+      <Syntax>
+        <string>Set-AppSenseManagementServerSecurityConfiguredUser [-Username &lt;String&gt;] [-SecurityRoles &lt;String[]&gt;] [-IsGroup] [-TrackTime]</string>
+        <string>Set-AppSenseManagementServerSecurityConfiguredUser [-Username &lt;String&gt;] [-SecurityRoles &lt;String[]&gt;] [-ADServer &lt;String&gt;] [-ADCredentials &lt;PSCredential&gt;] [-TrackTime]</string>
+        <string>Set-AppSenseManagementServerSecurityConfiguredUser [-Username &lt;String&gt;] [-SecurityRoles &lt;String[]&gt;] [-ADServer &lt;String&gt;] [-ADUseCurrentUser] [-TrackTime]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Username</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The username to create.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String[]" varLen="true" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>SecurityRoles</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An array of the roles that the user should be a member of.  The role names should match those that are configured already in the AppSense Management Server.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>IsGroup</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided denotes that the user should be created as a group.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ADServer</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The server to use to query Active Directory.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="PSCredential" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ADCredentials</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An object containing the credentials to be used to query Active Directory.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ADUseCurrentUser</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the current user will be used to look up objects in Active Directory.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Set-AppSenseManagementServerSecurityConfiguredUser -Username "TEST\testuser"</Cmd>
+          <Description>This example will create the "TEST\testuser" in the AppSense Management Server.  It uses the current user account and the NTAccount class to lookup the user details.  No specific server roles are applied.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Set-AppSenseManagementServerSecurityConfiguredUser -Username "TEST\testuser" -ServerRoles "Modifier","Viewer"</Cmd>
+          <Description>This example will create the "TEST\testuser" in the AppSense Management Server.  It uses the current user account and the NTAccount class to lookup the user details.  The user will be added to the Modifier and Viewer server roles.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 3</Name>
+          <Cmd>Set-AppSenseManagementServerSecurityConfiguredUser -Username "TEST\testuser" -SecurityRoles "Modifier","Viewer" -ADUseCurrentUser</Cmd>
+          <Description>This example will create the "TEST\testuser" in the AppSense Management Server.  It uses the current user account to connect to Active Directory and lookup the user details.  The user will be added to the Modifier and Viewer server roles.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 4</Name>
+          <Cmd>Set-AppSenseManagementServerSecurityConfiguredUser -Username "TEST\testuser" -SecurityRoles "Modifier","Viewer" -ADCredentials (Get-Credential)</Cmd>
+          <Description>This example will create the "TEST\testuser" in the AppSense Management Server.  It prompts for a user account to connect to Active Directory and lookup the user details.  The user will be added to the Modifier and Viewer server roles.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Get-AppSenseManagementServerSecurityConfiguredUser</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Remove-AppSenseManagementServerSecurityConfiguredUser</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+    <CmdletObject verb="Set" noun="AppSenseManagementServerSecurityServerRole">
+      <Name>Set-AppSenseManagementServerSecurityServerRole</Name>
+      <GeneralHelp>
+        <Synopsis>Creates or updates a security role.</Synopsis>
+        <Description>The Set-AppSenseManagementServerSecurityServerRole cmdlet creates or updates the given security role.</Description>
+        <Notes>Security role permissions are replaced with those specified when updating.</Notes>
+        <InputType>None</InputType>
+        <InputUrl />
+        <InputTypeDescription />
+        <ReturnType>System.Boolean;System.String</ReturnType>
+        <ReturnUrl />
+        <ReturnTypeDescription>$true if the matching security role was updated and $false if an error occurred;The unique ID of the security role that was created.</ReturnTypeDescription>
+      </GeneralHelp>
+      <ParamSets>
+        <CommandParameterSetInfo2 Name="ServerNew" Params="Name ServerPermissions Description ReadOnly TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable WhatIf Confirm" />
+        <CommandParameterSetInfo2 Name="ObjectNew" Params="Name ObjectPermissions Description ReadOnly TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable WhatIf Confirm" />
+        <CommandParameterSetInfo2 Name="ObjectUpdate" Params="Name NewName NewDescription NewObjectPermissions TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable WhatIf Confirm" />
+        <CommandParameterSetInfo2 Name="ServerUpdate" Params="Name NewName NewDescription NewServerPermissions TrackTime Verbose Debug ErrorAction WarningAction ErrorVariable WarningVariable OutVariable OutBuffer PipelineVariable WhatIf Confirm" />
+      </ParamSets>
+      <Syntax>
+        <string>Set-AppSenseManagementServerSecurityServerRole -Name &lt;String&gt; -ServerPermissions &lt;ServerPermissions[]&gt; [-Description &lt;String&gt;] [-ReadOnly] [-TrackTime] [-WhatIf] [-Confirm]</string>
+        <string>Set-AppSenseManagementServerSecurityServerRole -Name &lt;String&gt; -ObjectPermissions &lt;ObjectPermissions[]&gt; [-Description &lt;String&gt;] [-ReadOnly] [-TrackTime] [-WhatIf] [-Confirm]</string>
+        <string>Set-AppSenseManagementServerSecurityServerRole -Name &lt;String&gt; [-NewName &lt;String&gt;] [-NewDescription &lt;String&gt;] [-NewObjectPermissions &lt;ObjectPermissionFlags[]&gt;] [-TrackTime] [-WhatIf] [-Confirm]</string>
+        <string>Set-AppSenseManagementServerSecurityServerRole -Name &lt;String&gt; [-NewName &lt;String&gt;] [-NewDescription &lt;String&gt;] [-NewServerPermissions &lt;ServerPermissionFlags[]&gt;] [-TrackTime] [-WhatIf] [-Confirm]</string>
+      </Syntax>
+      <Parameters>
+        <ParameterDescription type="String" varLen="false" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Name</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The name of the security to create/update.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="ServerPermissions[]" varLen="true" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ServerPermissions</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An array of the server permissions for the server security role.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Description</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The description for the security role.</Description>
+          <DefaultValue>[string]::Empty</DefaultValue>
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ReadOnly</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>If supplied the security role will be flagged as read only.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>TrackTime</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>When provided the time will also be output to any verbosely written line.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>WhatIf</Name>
+          <Attributes>
+            <string>System.Management.Automation.AliasAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases>
+            <string>wi</string>
+          </Aliases>
+          <Description>Alerts what would have been carried out if this parameter was not supplied.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="SwitchParameter" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>Confirm</Name>
+          <Attributes>
+            <string>System.Management.Automation.AliasAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases>
+            <string>cf</string>
+          </Aliases>
+          <Description>Prompts for confirmation before attempting to update the matching security role.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="ObjectPermissions[]" varLen="true" required="true" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>ObjectPermissions</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>An array of the object permissions for the object security role.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>NewName</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The new name for the security role.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="String" varLen="false" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>NewDescription</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The new description for the security role.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="ObjectPermissionFlags[]" varLen="true" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>NewObjectPermissions</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The new object permissions for the object security role.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+        <ParameterDescription type="ServerPermissionFlags[]" varLen="true" required="false" dynamic="false" pipeRemaining="false" pipe="false" pipeProp="false" isPos="false" pos="named" globbing="false">
+          <Name>NewServerPermissions</Name>
+          <Attributes>
+            <string>System.Management.Automation.ArgumentTypeConverterAttribute</string>
+            <string>System.Management.Automation.ParameterAttribute</string>
+          </Attributes>
+          <Aliases />
+          <Description>The new server permissions for the server security role.</Description>
+          <DefaultValue />
+        </ParameterDescription>
+      </Parameters>
+      <Examples>
+        <Example>
+          <Name>Example 1</Name>
+          <Cmd>Set-AppSenseManagementServerSecurityServerRole -Name "TestRole" -ServerPermissions AlertRuleAdministrator,AlertRuleCreator -Description "Test Description"</Cmd>
+          <Description>This example will attempt to create a new server security role called "Test Role".  The new role will be assigned the AlertRuleAdministrator and AlertRuleCreator permissions.</Description>
+          <Output />
+        </Example>
+        <Example>
+          <Name>Example 2</Name>
+          <Cmd>Set-AppSenseManagementServerSecurityServerRole -Name "TestRole" -NewName "TestRole1" -NewServerPermissions AlertRuleAdministrator,AlertRuleCreator,AlertRuleModifier -Confirm</Cmd>
+          <Description>This example will attempt to update the server security role called "TestRole" and give it the name "TestRole1" whilst ensuring permissions are set to AlertRuleAdministrator, AlertRuleCreator and AlertRuleModifier.  The user will be prompted to accept the changes.</Description>
+          <Output />
+        </Example>
+      </Examples>
+      <RelatedLinks>
+        <RelatedLink>
+          <LinkText>Get-AppSenseManagementServerSecurityServerRole</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+        <RelatedLink>
+          <LinkText>Remove-AppSenseManagementServerSecurityServerRole</LinkText>
+          <LinkUrl />
+        </RelatedLink>
+      </RelatedLinks>
+      <SupportInformation ad="false" rsat="false" ps2="false" ps3="false" ps4="false" ps5="false" wxp="false" wv="false" w7="false" w8="false" w81="false" w2k3s="false" w2k3e="false" w2k3d="false" w2k8s="false" w2k8e="false" w2k8d="false" w2k8r2s="false" w2k8r2e="false" w2k8r2d="false" w2k12s="false" w2k12d="false" w2k12r2s="false" w2k12r2d="false" />
+      <Publish>false</Publish>
+    </CmdletObject>
+  </Cmdlets>
+</ModuleObject>
