@@ -25,6 +25,8 @@ Help the cmdlets can be obtained using standard PowerShell practice.
 
 ```Get-Help <cmdlet_name>```
 
+Help was created using https://pscmdlethelpeditor.codeplex.com/
+
 ## Notes
 Some basic AMC, EMPS and EM Config API functions have been prettified into cmdlets.
 
