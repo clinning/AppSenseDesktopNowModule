@@ -8,11 +8,13 @@
 			"features": {
 				"6.1":			["BITS-IIS-Ext","Web-Windows-Auth","Web-IP-Security","Web-Asp-Net","Web-Dyn-Compression"],
 				"6.2":			["BITS-IIS-Ext","Web-Windows-Auth","Web-IP-Security","Web-Asp-Net45","Web-Dyn-Compression","Web-Filtering"],
-				"6.3":			["BITS-IIS-Ext","Web-Windows-Auth","Web-IP-Security","Web-Asp-Net45","Web-Dyn-Compression","Web-Filtering"]
+				"6.3":			["BITS-IIS-Ext","Web-Windows-Auth","Web-IP-Security","Web-Asp-Net45","Web-Dyn-Compression","Web-Filtering"],
+				"10.0":			["Web-Windows-Auth","Web-IP-Security","Web-Asp-Net45","Web-Dyn-Compression","Web-Filtering"]
 			},
 			"prerequisites":	{
 				"8":			["net4framework", "c++2013x64"],
-				"10":			["net45framework", "c++2013x64"]
+				"10":			["net45framework", "c++2013x64"],
+				"10.1":			["net46framework", "c++2015x64"]
 			}
 		},
 		"emps": {
@@ -31,6 +33,9 @@
 				"6.3": {
 					"8":		["NET-Framework-Features","NET-HTTP-Activation","NET-Non-HTTP-Activ","NET-WCF-Services45","Web-ASP-Net","Web-HTTP-Errors","Web-Static-Content","Web-IP-Security","Web-Dir-Browsing","Web-Windows-Auth","Web-Basic-Auth","Web-HTTP-Redirect"],
 					"10":		["Web-Server","Web-Metabase","Web-Mgmt-Console","NET-WCF-HTTP-Activation45","Web-Basic-Auth","Web-Windows-Auth","Web-IP-Security","Web-ISAPI-Ext","Web-HTTP-Redirect","Web-Log-Libraries","Web-Http-Tracing","Web-Request-Monitor"]
+				},
+				"10.0": {
+					"10":		["Web-Server","Web-Metabase","Web-Mgmt-Console","NET-WCF-HTTP-Activation45","Web-Basic-Auth","Web-Windows-Auth","Web-IP-Security","Web-ISAPI-Ext","Web-HTTP-Redirect","Web-Log-Libraries","Web-Http-Tracing","Web-Request-Monitor"]
 				}
 			},
 			"prerequisites":	{
@@ -42,52 +47,84 @@
 			"friendly":			"AppSense Management Server Console",
 			"windowsinstaller":	true,
 			"cmd":				"ManagementConsole64.msi",
-			"prerequisites":	["c++2013x64"]
+			"prerequisites":	{
+				"8":			["c++2013x64"],
+				"10":			["c++2013x64"],
+				"10.1":			["c++2015x64"]
+			}
 		},
 		"msconsolex86": {
 			"friendly":			"AppSense Management Server Console",
 			"windowsinstaller":	true,
 			"cmd":				"ManagementConsole32.msi",
-			"prerequisites":	["c++2013x86"]
+			"prerequisites":	{
+				"8":			["c++2013x86"],
+				"10":			["c++2013x86"],
+				"10.1":			["c++2015x86"]
+			}
 		},
 		"emconsolex64": {
 			"friendly":			"AppSense Environment Manager Console",
 			"windowsinstaller":	true,
 			"cmd":				"EnvironmentManagerConsole64.msi",
-			"prerequisites":	["c++2013x64", "c++2013x86"]
+			"prerequisites":	{
+				"8":			["c++2013x64", "c++2013x86"],
+				"10":			["c++2013x64", "c++2013x86"],
+				"10.1":			["c++2015x64", "c++2015x86"]
+			}
 		},
 		"emconsolex86": {
 			"friendly":			"AppSense Environment Manager Console",
 			"windowsinstaller":	true,
 			"cmd":				"EnvironmentManagerConsole32.msi",
-			"prerequisites":	["c++2013x86"]
+			"prerequisites":	{
+				"8":			["c++2013x86"],
+				"10":			["c++2013x86"],
+				"10.1":			["c++2015x86"]
+			}
 		},
 		"empolicyconsolex64": {
 			"friendly":			"AppSense Environment Manager Console - Policy Only",
 			"windowsinstaller":	true,
 			"cmd":				"EnvironmentManagerConsole64.msi",
-			"prerequisites":	["c++2013x64", "c++2013x86"],
+			"prerequisites":	{
+				"8":			["c++2013x64", "c++2013x86"],
+				"10":			["c++2013x64", "c++2013x86"],
+				"10.1":			["c++2015x64", "c++2015x86"]
+			},
 			"args":				["ADDLOCAL=ALL", "REMOVE=Feature_Personalization"]
 		},
 		"empolicyconsolex86": {
 			"friendly":			"AppSense Environment Manager Console - Policy Only",
 			"windowsinstaller":	true,
 			"cmd":				"EnvironmentManagerConsole32.msi",
-			"prerequisites":	["c++2013x86"],
+			"prerequisites":	{
+				"8":			["c++2013x64", "c++2013x86"],
+				"10":			["c++2013x64", "c++2013x86"],
+				"10.1":			["c++2015x64", "c++2015x86"]
+			},
 			"args":				["ADDLOCAL=ALL", "REMOVE=Feature_Personalization"]
 		},
 		"empersonalisationconsolex64": {
 			"friendly":			"AppSense Environment Manager Console - Personalisation Only",
 			"windowsinstaller":	true,
 			"cmd":				"EnvironmentManagerConsole64.msi",
-			"prerequisites":	["c++2013x64", "c++2013x86"],
+			"prerequisites":	{
+				"8":			["c++2013x64", "c++2013x86"],
+				"10":			["c++2013x64", "c++2013x86"],
+				"10.1":			["c++2015x64", "c++2015x86"]
+			},
 			"args":				["ADDLOCAL=ALL", "REMOVE=Feature_Policy"]
 		},
 		"empersonalisationconsolex86": {
 			"friendly":			"AppSense Environment Manager Console - Personalisation Only",
 			"windowsinstaller":	true,
 			"cmd":				"EnvironmentManagerConsole32.msi",
-			"prerequisites":	["c++2013x86"],
+			"prerequisites":	{
+				"8":			["c++2013x64", "c++2013x86"],
+				"10":			["c++2013x64", "c++2013x86"],
+				"10.1":			["c++2015x64", "c++2015x86"]
+			},
 			"args":				["ADDLOCAL=ALL", "REMOVE=Feature_Policy"]
 		}
 	},
@@ -116,6 +153,30 @@
 			"cmd":				"vcredist2013_x86.exe",
 			"args":				"/q"
 		},
+		"c++2015x64": {
+			"friendly":			"Microsoft Visual C++ 2015 Redistributable Package (x64)",
+			"windowsinstaller":	false,
+			"check": {
+				"type":			"product",
+				"code":			"{21134089-9B59-34C8-BE11-929D26AD5207}",
+				"property":		"VersionString",
+				"value":		"14.0.24123"
+			},
+			"cmd":				"vcredist2015_x64.exe",
+			"args":				"/q"
+		},
+		"c++2015x86": {
+			"friendly":			"Microsoft Visual C++ 2015 Redistributable Package (x64)",
+			"windowsinstaller":	false,
+			"check": {
+				"type":			"product",
+				"code":			"{06AE3BCC-7612-39D3-9F3B-B6601D877D02}",
+				"property":		"VersionString",
+				"value":		"14.0.24123"
+			},
+			"cmd":				"vcredist2015_x86.exe",
+			"args":				"/q"
+		},
 		"net4framework": {
 			"friendly":			".NET Framework 4.0",
 			"windowsinstaller":	false,
@@ -142,6 +203,19 @@
 			"cmd":				"dotNetFx45_Full_x86_x64.exe",
 			"args":				"/q /norestart"
 		},
+		"net46framework": {
+			"friendly":			".NET Framework 4.6",
+			"windowsinstaller":	false,
+			"check": {
+				"type":			"registry",
+				"key":			"HKLM\\SOFTWARE\\Microsoft\\NET Framework Setup\\NDP\\v4\\Full",
+				"value":		"Release",
+				"data":			394254,
+				"compare":		"ge"
+			},
+			"cmd":				"NDP461-KB3102436-x86-x64-AllOS-ENU.exe",
+			"args":				"/q /norestart"
+		},
 		"rewritemodule": {
 			"friendly":			"Microsoft IIS URL Rewrite Module 2 (x64)",
 			"windowsinstaller":	true,
@@ -152,7 +226,6 @@
 				"value":		"7.2.1952"
 			},
 			"cmd":				"rewrite_amd64.msi"
-
 		}
 	},
 	"windowsinstaller": {
