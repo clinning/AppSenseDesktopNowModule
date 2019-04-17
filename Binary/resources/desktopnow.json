@@ -14,7 +14,8 @@
 			"prerequisites":	{
 				"8":			["net4framework", "c++2013x64"],
 				"10":			["net45framework", "c++2013x64"],
-				"10.1":			["net46framework", "c++2015x64"]
+				"10.1":			["net46framework", "c++2015x64"],
+				"10.2":			["net46framework", "c++2017x64"]
 			}
 		},
 		"emps": {
@@ -166,7 +167,7 @@
 			"args":				"/q"
 		},
 		"c++2015x86": {
-			"friendly":			"Microsoft Visual C++ 2015 Redistributable Package (x64)",
+			"friendly":			"Microsoft Visual C++ 2015 Redistributable Package (x86)",
 			"windowsinstaller":	false,
 			"check": {
 				"type":			"product",
@@ -175,6 +176,18 @@
 				"value":		"14.0.24123"
 			},
 			"cmd":				"vcredist2015_x86.exe",
+			"args":				"/q"
+		},
+		"c++2017x64": {
+			"friendly":			"Microsoft Visual C++ 2017 Redistributable Package (x64)",
+			"windowsinstaller":	false,
+			"check": {
+				"type":			"product",
+				"code":			"{C99E2ADC-0347-336E-A603-F1992B09D582}",
+				"property":		"VersionString",
+				"value":		"14.12.25810"
+			},
+			"cmd":				"vcredist2017_x64.exe",
 			"args":				"/q"
 		},
 		"net4framework": {
