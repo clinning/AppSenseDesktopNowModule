@@ -98,6 +98,7 @@ Remove-PSSession -Session $empsSession
 if (-not $ret) { return $ret }
 
 #-- Automate AMC Web Services API --#
+<#
 try {
     $awsSession = New-PSSession -ComputerName $([System.Net.Dns]::GetHostName()) -Name "AMC Web Services API Automation" -ErrorAction Stop
 } catch {
@@ -123,3 +124,4 @@ $ret = Invoke-Command -Session $awsSession -ScriptBlock {
 }
 Remove-PSSession -Session $awsSession
 if (-not $ret) { return $ret }
+#>
