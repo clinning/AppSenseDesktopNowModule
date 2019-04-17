@@ -17,30 +17,28 @@
 ##############################################################################################################################>
 
 # $ProgressPreference = "SilentlyContinue"
-$configCreds = New-Object System.Management.Automation.PSCredential("$env:UserDomain\svcUWMConfig", (ConvertTo-SecureString -AsPlainText "Welcome21" -Force))
-$serviceCreds = New-Object System.Management.Automation.PSCredential("$env:UserDomain\svcUWMComms", (ConvertTo-SecureString -AsPlainText "Welcome21" -Force))
-$dbServer = "SQL01"
-$dbInstance = ""
-$dbserver += if ($dbInstance) { "\$dbInstance" } else { "" }
+$configCreds = New-Object System.Management.Automation.PSCredential("$env:UserDomain\svcAppSenseConfig", (ConvertTo-SecureString -AsPlainText "Welcome21" -Force))
+$serviceCreds = New-Object System.Management.Automation.PSCredential("$env:UserDomain\svcAppSenseComms", (ConvertTo-SecureString -AsPlainText "Welcome21" -Force))
+$dbInstance = "MySQLInstance"
+$dbServer = "$([System.Net.Dns]::GetHostName())\$dbInstance"
 $srcSxs = "D:\sources\sxs"
-$srcPath = "C:\UWMInstaller"
+$srcPath = "C:\DesktopNowInstall"
 $srcLogPath = "C:\Temp\AppSenseDesktopNow_LogFile.txt"
 $modPath = Split-Path -Path (Get-Location)
 
 #-- Do the binary installs --#
-<#
 Import-Module "$modPath\Binary\AppSenseDesktopNowInstaller" -Force
 $ret = Set-AppSenseDesktopNowLogPath -Path $srcLogPath -TrackTime -Verbose
 if (-not $ret) { return $ret }
 if (Set-AppSenseDesktopNowBasePath $srcPath -TrackTime -Verbose) {
-    $ret = Add-AppSenseDesktopNowComponent -Component ManagementCenter -SetupParams "PATCH=$srcPath\Software\Products\SP\ManagementServer64.msp" -TrackTime -Verbose
-    if ($ret) { $ret = Add-AppSenseDesktopNowComponent -Component PersonalizationServer -SxSPath $sxsPath -SetupParams "PATCH=$srcPath\Software\Products\SP\PersonalizationServer64.msp" -TrackTime -Verbose }
+    $ret = Add-AppSenseDesktopNowComponent -Component ManagementCenter -SetupParams "PATCH=$srcPath\Software\Products\ManagementServer64.msp" -TrackTime -Verbose
+    if ($ret) { $ret = Add-AppSenseDesktopNowConsole -Console ManagementCenter -SetupParams "MANAGEMENTSERVERURL=`"http://$([System.Net.Dns]::GetHostName())`"" -TrackTime -Verbose }
+    if ($ret) { $ret = Add-AppSenseDesktopNowComponent -Component PersonalizationServer -SxSPath $sxsPath -SetupParams "PATCH=$srcPath\Software\Products\PersonalizationServer64.msp" -TrackTime -Verbose }
+    if ($ret) { $ret = Add-AppSenseDesktopNowConsole -Console EnvironmentManagerPolicyAndPersonalization -TrackTime -Verbose }
 }
 if (-not $ret) { return $ret }
-#>
 
 #-- Do the SQL Express Installation --#
-<#
 try {
     $sqlSession = New-PSSession -ComputerName $([System.Net.Dns]::GetHostName()) -Name "AppSense DesktopNow SQL Express Installation & Configuration" -ErrorAction Stop
 } catch {
@@ -61,7 +59,6 @@ $ret = Invoke-Command -Session $sqlSession -ArgumentList $srcSxs -ScriptBlock {
 }
 Remove-PSSession -Session $sqlSession
 if (-not $ret) { return $ret }
-#>
 
 #-- Automate the SCU for the AMC --#
 try {
@@ -70,7 +67,7 @@ try {
     Write $_
     exit
 }
-$ret = Invoke-Command -Session $amcSession -ArgumentList "AMS" -ScriptBlock {
+$ret = Invoke-Command -Session $amcSession -ArgumentList "AMS-MODULE-DEFAULT" -ScriptBlock {
     param($dbName)
     $ProgressPreference = $Using:ProgressPreference
     Import-Module "$($Using:modPath)\Configuration\AppSenseDesktopNowConfiguration" -Force
@@ -88,7 +85,7 @@ try {
     Write $_
     exit
 }
-$ret = Invoke-Command -Session $empsSession -ArgumentList "EMPS" -ScriptBlock {
+$ret = Invoke-Command -Session $empsSession -ArgumentList "EMPS-MODULE-DEFAULT" -ScriptBlock {
     param($dbName)
     $ProgressPreference = $Using:ProgressPreference
     Import-Module "$($Using:modPath)\Configuration\AppSenseDesktopNowConfiguration" -Force
@@ -100,7 +97,6 @@ Remove-PSSession -Session $empsSession
 if (-not $ret) { return $ret }
 
 #-- Automate AMC Web Services API --#
-<#
 try {
     $awsSession = New-PSSession -ComputerName $([System.Net.Dns]::GetHostName()) -Name "AMC Web Services API Automation" -ErrorAction Stop
 } catch {
@@ -126,4 +122,3 @@ $ret = Invoke-Command -Session $awsSession -ScriptBlock {
 }
 Remove-PSSession -Session $awsSession
 if (-not $ret) { return $ret }
-#>

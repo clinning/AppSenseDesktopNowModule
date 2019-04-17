@@ -329,22 +329,7 @@ function Initialize-InstanceWebsite {
         }
         #-- Initialize the IIS Site --#
         $ApsServerArgList.Add('Force', $true)
-        $ApsServerArgList.Add('WarningsAsErrors', $true)
-        $ApsServerArgList.Add('ErrorAction', 'Stop')
-        $tries = 100
-        $currentTry = 1
-        while ($tries -ne $currentTry) {
-            Write-LogText "Attempt $currentTry of $tries" -TrackTime:$TrackTime.IsPresent
-            try {
-                Initialize-ApsServer @ApsServerArgList
-                break
-            } catch {
-                Write-LogText "Waiting for settings to flush" -TrackTime:$TrackTime.IsPresent
-                Start-Sleep -Seconds 5
-            }
-            $currentTry += 1
-        }
-        if ($currentTry -eq $tries) { Throw "Changes not flushed properly for the $($ApsServerArgList.WebsiteName) website" }
+        Initialize-ApsServer @ApsServerArgList #-ErrorAction Stop
         $ret = $true
     } catch {
         Write-LogText $_ -TrackTime:$TrackTime.IsPresent
@@ -1217,7 +1202,7 @@ function Get-InstanceDetails {
             Import-ApsInstanceModule -InstanceId $instance.InstanceId
             if (-not (Get-Command -Name Get-ApsServerDetail -ErrorAction SilentlyContinue)) {
                 $msg = 'This cmdlet should is only available in v10 and above.'
-                Write-Warning $msg
+                Write-Warning $msg 
                 Throw($msg)
             }
             $ret = Get-ApsServerDetail
