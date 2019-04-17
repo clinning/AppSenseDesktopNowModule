@@ -6,7 +6,7 @@ Add-Type -TypeDefinition @"
 "@
 
 function Get-SCUProduct([AppSenseDesktopNowSCU.Products]$p) {
-    $prods = @('AppSense Management Server', 'AppSense Personalization Server')
+    $prods = @('Management Server', 'Personalization Server')
     $p = if ($p -ge 2) { 1 } else { 0 }
     return $prods[$p]
 }
